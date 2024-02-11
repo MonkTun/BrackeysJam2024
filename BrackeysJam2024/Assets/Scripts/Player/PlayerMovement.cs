@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float xVelocity;
     private float yVelocity;
 
+    [SerializeField] private float sprintRate;
+
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -85,6 +87,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Debug.Log(rb.velocity);
-        rb.velocity = new Vector2(xVelocity, yVelocity);
+        rb.velocity = new Vector2(xVelocity, yVelocity)*(Input.GetKey(KeyCode.LeftShift)? sprintRate : 1f);
     }
 }
