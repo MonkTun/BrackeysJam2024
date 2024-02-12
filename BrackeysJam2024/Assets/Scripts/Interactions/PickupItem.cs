@@ -15,9 +15,10 @@ public class PickupItem : MonoBehaviour, IInteractable
 		itemBase = _item;
 	}
 
-	public bool InteractCheck()
+	public bool InteractCheck(out string message)
 	{
 		//TODO logic
+		message = _item.itemName; //other interactive objects can display different message depending on its need
 
 		return true;
 	}

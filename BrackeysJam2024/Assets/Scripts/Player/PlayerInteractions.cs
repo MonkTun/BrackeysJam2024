@@ -64,9 +64,10 @@ public class PlayerInteractions : MonoBehaviour
 		{
 			if (hit.transform.TryGetComponent(out IInteractable interactable))
 			{
-				if (interactable.InteractCheck()) 
+				if (interactable.InteractCheck(out string message)) 
 				{
 					_selectedInteractable = interactable;
+					UIManager.Instance.InteractionUI.UpdateIteraction(hit.transform.position, message);
 				}
 
 				return;
