@@ -18,7 +18,9 @@ public class HungerManager : MonoBehaviour
     void Update()
     {
         changeHunger(-1f * hungerDepletionRate * Time.deltaTime);
-    }
+        UIManager.Instance.PlayerUI.UpdateHungerBar(hunger, maxHunger);
+
+	}
 
     public void changeHunger(float value) //Increase/Decrease hunger by the value
     {

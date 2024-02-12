@@ -16,8 +16,8 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+		UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
+	}
 
     public void changeHealth(float value) //Increase/Decrease health by the value
     {

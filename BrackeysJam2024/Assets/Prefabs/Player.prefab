@@ -382,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &740563280
 Transform:
   m_ObjectHideFlags: 0
@@ -721,7 +721,6 @@ GameObject:
   - component: {fileID: 1463366269}
   - component: {fileID: 1463366272}
   - component: {fileID: 1463366271}
-  - component: {fileID: 1463366270}
   - component: {fileID: 1463366279}
   - component: {fileID: 1463366262}
   m_Layer: 0
@@ -924,21 +923,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
---- !u!114 &1463366270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588369753581178058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b812c7e971e264087acb995ff15a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  staminaBar: {fileID: 0}
-  hungerBar: {fileID: 0}
 --- !u!114 &1463366279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,6 +951,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBrightness: 1
-  minBrightness: 0.1
+  minBrightness: 0
   brightness: 0
-  brightnessDepleteRate: 0.05
+  brightnessDepletionRate: 0.04
+  torch: {fileID: 740563281}
+  lightNearPlayer: {fileID: 1999521026}
+  mainLightRay: {fileID: 1926453215}
+  lightMuzzle: {fileID: 67298317}
+  lightSpread: {fileID: 10462866}

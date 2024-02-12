@@ -19,6 +19,7 @@ public class StaminaManager : MonoBehaviour
     void Update()
     {
         changeStamina(staminaRegenRate * Time.deltaTime);
+        UIManager.Instance.PlayerUI.UpdateStaminaBar(stamina, maxStamina);
     }
 
     public void changeStamina(float value) //Increase/Decrease stamina by the value
