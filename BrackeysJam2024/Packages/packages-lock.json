@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.h8man.2d.navmeshplus": {
+      "version": "https://github.com/h8man/NavMeshPlus.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f8a1aedbf0bc7c4aebe0f52300b002912690ce1a"
+    },
     "com.singularitygroup.hotreload": {
       "version": "file:com.singularitygroup.hotreload",
       "depth": 0,
@@ -14,6 +21,24 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {}
+    },
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.2d.tilemap.extras": {
+      "version": "2.2.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.tilemap": "1.0.0",
+        "com.unity.2d.tilemap": "1.0.0",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
       "version": "1.8.4",
