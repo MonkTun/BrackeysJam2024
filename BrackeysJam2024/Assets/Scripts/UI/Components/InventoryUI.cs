@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
-public class UIInventory : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
 	[SerializeField] private Transform _backpackContent, _hotbarContent;
 	[SerializeField] private UIItemSlot _slotPrefab;

@@ -2080,8 +2080,8 @@ GameObject:
   - component: {fileID: 678815655972452774}
   - component: {fileID: 678815655972452769}
   - component: {fileID: 678815655972452773}
-  - component: {fileID: 678815655972452778}
   - component: {fileID: 678815656128705926}
+  - component: {fileID: 1581228799886944028}
   m_Layer: 5
   m_Name: Game Canvas
   m_TagString: Untagged
@@ -2191,25 +2191,6 @@ MonoBehaviour:
   pausedPanel: {fileID: 678815657160451758}
   settingsPanel: {fileID: 678815656998469313}
   deathPanel: {fileID: 678815655772984043}
---- !u!114 &678815655972452778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678815655972452768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab011d6d1171d043a74a00ff0bc765d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backpackContent: {fileID: 678815657173682651}
-  _hotbarContent: {fileID: 678815656470322525}
-  _slotPrefab: {fileID: 2329059074307814846, guid: 60a6f863946fe06428624ea510a647d2, type: 3}
-  _canvas: {fileID: 678815655972452775}
-  _draggerRect: {fileID: 3575531009836993413}
-  _draggerIconImg: {fileID: 4345438431687904084}
-  _draggerCountTxt: {fileID: 8436199969365795757}
 --- !u!114 &678815656128705926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,6 +2207,25 @@ MonoBehaviour:
   staminaBar: {fileID: 161719495}
   hungerBar: {fileID: 1255033462}
   lightBar: {fileID: 1389840615}
+--- !u!114 &1581228799886944028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678815655972452768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734bcd9d9ff8bb34d96b9153fdf2b7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backpackContent: {fileID: 678815657173682651}
+  _hotbarContent: {fileID: 678815656470322525}
+  _slotPrefab: {fileID: 2329059074307814846, guid: 60a6f863946fe06428624ea510a647d2, type: 3}
+  _canvas: {fileID: 678815655972452775}
+  _draggerRect: {fileID: 3575531009836993413}
+  _draggerIconImg: {fileID: 4345438431687904084}
+  _draggerCountTxt: {fileID: 8436199969365795757}
 --- !u!1 &678815656470322524
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,11 +15,11 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
 	public InventoryItem InventoryItem { get; private set; } //can this be private?
 
-	private UIInventory _uiInventory;
+	private InventoryUI _uiInventory;
 
 	// PUBLIC METHODS
 
-	public void SetUIInventory(UIInventory uiInventory)
+	public void SetUIInventory(InventoryUI uiInventory)
 	{
 		_uiInventory = uiInventory;
 	}

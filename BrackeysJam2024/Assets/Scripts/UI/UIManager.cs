@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(UIInventory)), RequireComponent(typeof(PlayerUI))]
+[RequireComponent(typeof(InventoryUI)), RequireComponent(typeof(PlayerUI))]
 public class UIManager : MonoBehaviour
 {
 	public enum ViewState
@@ -16,12 +16,12 @@ public class UIManager : MonoBehaviour
 
     public static UIManager Instance { get; private set; }
 
-	public UIInventory Inventory => _inventory;
+	public InventoryUI Inventory => _inventory;
 	public PlayerUI PlayerUI => _playerUI;
 
 	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, settingsPanel, deathPanel; 
 
-	private UIInventory _inventory;
+	private InventoryUI _inventory;
 	private PlayerUI _playerUI;
 	private ViewState _state;
 
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 			return;
 		}
 
-		_inventory = GetComponent<UIInventory>();
+		_inventory = GetComponent<InventoryUI>();
 		_playerUI = GetComponent<PlayerUI>();
 	}
 

@@ -45,7 +45,7 @@ public class BrightnessManager : MonoBehaviour
         lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness;
         lightSpread.intensity = lightSpreadBaseIntensity * brightness;
 
-		UIManager.Instance.PlayerUI.UpdateLightBar(minBrightness, maxBrightness);
+		UIManager.Instance.PlayerUI.UpdateLightBar(brightness, maxBrightness);
 	}
 
     public void changeBrightness(float value) //Increase/Decrease brightness by the value
