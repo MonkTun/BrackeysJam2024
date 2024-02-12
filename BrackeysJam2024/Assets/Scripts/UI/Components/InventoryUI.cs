@@ -42,6 +42,8 @@ public class InventoryUI : MonoBehaviour
 			slot.SetUIInventory(this);
 			_slotsBackpack.Add(slot);
 		}
+
+		SelectHotbarSlot(0);
 	}
 
 	// PUBLIC METHODS
@@ -75,6 +77,14 @@ public class InventoryUI : MonoBehaviour
 			{
 				_slotsBackpack[i].SetItem(null);
 			}
+		}
+	}
+
+	public void SelectHotbarSlot(int slot)
+	{
+		for (int i = 0; i < _slotsHotbar.Count; i++)
+		{
+			_slotsHotbar[i].SetHighlighter(i == slot);
 		}
 	}
 

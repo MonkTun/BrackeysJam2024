@@ -723,6 +723,7 @@ GameObject:
   - component: {fileID: 1463366271}
   - component: {fileID: 1463366279}
   - component: {fileID: 1463366262}
+  - component: {fileID: 6314583082813377092}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -959,3 +960,15 @@ MonoBehaviour:
   mainLightRay: {fileID: 1926453215}
   lightMuzzle: {fileID: 67298317}
   lightSpread: {fileID: 10462866}
+--- !u!114 &6314583082813377092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04a6620ede4c034397d610cac6a4f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

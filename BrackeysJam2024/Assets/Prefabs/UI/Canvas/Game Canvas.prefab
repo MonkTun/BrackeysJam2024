@@ -2242,7 +2242,8 @@ MonoBehaviour:
   _interactionUI: {fileID: 3215453451771475696}
   _interactionText: {fileID: 4469150547680800579}
   _interactionCanvasGroup: {fileID: 532187352099522306}
-  _fadeSpeed: 2
+  _snapSpeed: 25
+  _fadeSpeed: 5
 --- !u!1 &678815656470322524
 GameObject:
   m_ObjectHideFlags: 0

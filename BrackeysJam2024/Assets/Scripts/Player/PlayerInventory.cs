@@ -22,6 +22,9 @@ public class PlayerInventory : MonoBehaviour
 	public List<InventoryItem> HotbarItems = new List<InventoryItem>();
 	public List<InventoryItem> BackpackItems = new List<InventoryItem>();
 
+	public InventoryItem CurrentlySelectedItem => HotbarItems[_currentSlot]; 
+
+	private int _currentSlot;
 
 	private void Awake()
 	{
@@ -33,6 +36,24 @@ public class PlayerInventory : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.E))
 		{
 			UIManager.Instance.ManageGameViews(UIManager.ViewState.Inventory, true);
+		}
+
+		for (int i = (int)KeyCode.Alpha0; i <= (int)KeyCode.Alpha5; i++)
+		{
+			if (Input.GetKey((KeyCode)i) == true)
+			{
+				_currentSlot = (byte)(i - (int)KeyCode.Alpha0 - 1);
+				UIManager.Instance.Inventory.SelectHotbarSlot(_currentSlot);
+				return;
+			}
+		}
+
+		int mouseWheelSlot = GetMouseWheel();
+
+		if (mouseWheelSlot != -1)
+		{
+			_currentSlot = mouseWheelSlot;
+			UIManager.Instance.Inventory.SelectHotbarSlot(_currentSlot);
 		}
 	}
 
@@ -148,4 +169,38 @@ public class PlayerInventory : MonoBehaviour
 		BackpackItems = backpackItem;
 	}
 
+	// PRIVATE METHODS
+
+	private int GetMouseWheel()
+	{
+		float wheelAxis = Input.GetAxis("Mouse ScrollWheel");
+
+		if (wheelAxis == 0f)
+			return -1;
+
+		int weaponButton = 0;
+
+		if (wheelAxis > 0f)
+		{
+			weaponButton = _currentSlot + 1;
+
+			if (weaponButton >= GlobalVariableHelper.MaxHotbarItems)
+			{
+				weaponButton = 0;
+			}
+		}
+		else if (wheelAxis < 0f)
+		{
+			weaponButton = _currentSlot - 1;
+
+			if (weaponButton < 0)
+			{
+				weaponButton = GlobalVariableHelper.MaxHotbarItems - 1;
+			}
+		}
+
+		
+
+		return weaponButton;
+	}
 }
