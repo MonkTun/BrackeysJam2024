@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 1463366272}
   - component: {fileID: 1463366271}
   - component: {fileID: 1463366270}
+  - component: {fileID: 1463366279}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -824,3 +825,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
+--- !u!114 &1463366279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e217859e5097f46b77425a6665624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunger: 0
+  maxHunger: 100
+  hungerDepletionRate: 2

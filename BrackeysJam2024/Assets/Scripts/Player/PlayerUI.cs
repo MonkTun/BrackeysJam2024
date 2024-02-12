@@ -7,15 +7,18 @@ public class PlayerUI : MonoBehaviour
 {
     public Slider healthBar;
     public Slider staminaBar;
+    public Slider hungerBar;
 
     private HealthManager playerHealthManager;
     private StaminaManager playerStaminaManager;
+    private HungerManager playerHungerManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerHealthManager = GetComponent<HealthManager>();
         playerStaminaManager = GetComponent<StaminaManager>();
+        playerHungerManager = GetComponent<HungerManager>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class PlayerUI : MonoBehaviour
     {
         healthBar.value = playerHealthManager.health/playerHealthManager.maxHealth;
         staminaBar.value = playerStaminaManager.stamina/playerStaminaManager.maxStamina;
+        hungerBar.value = playerHungerManager.hunger / playerHungerManager.maxHunger;
     }
 
     /*

@@ -32,6 +32,5 @@ public class StaminaManager : MonoBehaviour
         {
             stamina = 0f;
         }
-
     }
 }
