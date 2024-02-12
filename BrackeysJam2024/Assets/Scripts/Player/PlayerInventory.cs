@@ -180,7 +180,7 @@ public class PlayerInventory : MonoBehaviour
 
 		int weaponButton = 0;
 
-		if (wheelAxis > 0f)
+		if (wheelAxis < 0f) //TODO option for the inverse
 		{
 			weaponButton = _currentSlot + 1;
 
@@ -189,7 +189,7 @@ public class PlayerInventory : MonoBehaviour
 				weaponButton = 0;
 			}
 		}
-		else if (wheelAxis < 0f)
+		else if (wheelAxis > 0f)
 		{
 			weaponButton = _currentSlot - 1;
 

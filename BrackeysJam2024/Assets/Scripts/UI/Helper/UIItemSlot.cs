@@ -112,7 +112,7 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
 			}
 
-		}
+		} 
 		_uiInventory.RefreshInventory();
 	}
 }

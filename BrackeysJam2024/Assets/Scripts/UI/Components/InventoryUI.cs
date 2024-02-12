@@ -108,6 +108,8 @@ public class InventoryUI : MonoBehaviour
 
 	public void RefreshInventory()
 	{
+		if (_playerInventory == null) return;
+
 		_hotbarItemList = new List<InventoryItem>();
 
 		for (int i = 0; i < _slotsHotbar.Count; i++) // this is so scuffed..
