@@ -30,8 +30,9 @@ public class EnemyBase : MonoBehaviour
     #region Movement Values
     [Header("Movement values")]
     public Transform baseLocation;
+    public Vector2 currentExplorationTarget;
     #region Idle State
-    protected float _timeOfLastSearch = -1000;
+    protected float _timeOfLastSearch = 0;
     [SerializeField] protected float _timeBetweenSearches = 5;
     [SerializeField] protected float _timeBetweenSearchesVariance = 2;
     [SerializeField] protected float _searchDuration = 3;
@@ -88,8 +89,15 @@ public class EnemyBase : MonoBehaviour
     {
         if (_navAgent == null) { _navAgent = GetComponent<NavMeshAgent>(); }
         _navAgent.speed = _agentSpeed;
+        _navAgent.updateRotation = false;
+        _navAgent.updateUpAxis = false;
         if (_animator == null) { _animator = GetComponent<Animator>(); }
         UpdateRuntimeValues();
+    }
+    private void Start()
+    {
+        //Set new exploration target
+        FindExplorationTarget();
     }
     void Update()
     {
@@ -97,13 +105,17 @@ public class EnemyBase : MonoBehaviour
         UpdateCanSeePlayer();
         //State Machine
         RunStateMachine();
+
     }
     #region Collision Functions
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-
+            if (!_isAttacking && Time.time - _timeOfLastAttack > _timeBetweenAttacks)
+            {
+                StartAttack();
+            }
         }
     }
     #endregion
@@ -137,15 +149,15 @@ public class EnemyBase : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.idle:
-                if (_isAttacking) IdleBehaviour();
+                if (!_isAttacking) IdleBehaviour();
                 IdleTransitions();
                 break;
             case EnemyState.defensive:
-                if (_isAttacking) DefensiveBehaviour();
+                if (!_isAttacking) DefensiveBehaviour();
                 DefensiveTransitions();
                 break;
             case EnemyState.aggressive:
-                if (_isAttacking) AggressiveBehaviour();
+                if (!_isAttacking) AggressiveBehaviour();
                 AggressiveTransitions();
                 break;
             default:
@@ -224,7 +236,7 @@ public class EnemyBase : MonoBehaviour
         _navAgent.SetDestination((Vector2)PlayerMovement.instance.transform.position);
         Vector2 playerPos = PlayerMovement.instance.transform.position;
 
-        if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance && CanSeePlayer())
+        if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&&Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance && CanSeePlayer())
         {
             StartAttack();
         }
@@ -237,11 +249,11 @@ public class EnemyBase : MonoBehaviour
     #region Idle State Machine
     public virtual void ExploringBehaviour()
     {
-        // _navAgent.
+        //Just navmesh agent stuff, does not need to update
     }
     public virtual void ExploringTransitions()
     {
-        if (Vector2.Distance(transform.position, baseLocation.position) > _currentMaxRoamingDistance)
+        if (Vector2.Distance(transform.position, baseLocation.position) > _currentMaxRoamingDistance||(Vector2.Distance(currentExplorationTarget,transform.position)<_idleSightDistance))
         {
             _currentMaxRoamingDistance = _maxRoamingDistance + Random.Range(-_maxRoamingDistanceVariance, _maxRoamingDistanceVariance);
             timeOfLastSwitchIdleState = Time.time;
@@ -269,13 +281,14 @@ public class EnemyBase : MonoBehaviour
         float distanceFromBase = Vector2.Distance(transform.position, (Vector2)baseLocation.position);
         if (distanceFromBase < _minRetreatingBaseDistance && CanSeeTarget(baseLocation.position))
         {
+            FindExplorationTarget();
             currentIdleState = IdleState.exploring;
         }
 
     }
     public virtual void SearchingBehaviour()
     {
-        //Stand still, checks at start and end of search
+        //Stand still, checks at start and end of search, intentionally left blank
     }
     public virtual void SearchingTransitions()
     {
@@ -287,7 +300,9 @@ public class EnemyBase : MonoBehaviour
         if (Time.time - timeOfLastSwitchIdleState > _currentSearchDuration)
         {
             _timeOfLastSearch = Time.time;
+            _navAgent.speed = _agentSpeed;
             timeOfLastSwitchIdleState = Time.time;
+            currentIdleState = IdleState.exploring;
             _currentSearchDuration = _searchDuration + Random.Range(-_searchDurationVariance, _searchDurationVariance);
         }
     }
@@ -298,13 +313,15 @@ public class EnemyBase : MonoBehaviour
     public virtual bool CanSeePlayer()
     {
         Vector2 playerPos = (Vector2)PlayerMovement.instance.transform.position;
-        if (Vector2.Distance(playerPos, transform.position) > _sightDistance) { return false; }
+        if (Vector2.Distance(playerPos, transform.position) > ((currentState!=EnemyState.idle||currentIdleState!=IdleState.searching)?_sightDistance:_idleSightDistance)) { return false; }
         return CanSeeTarget(playerPos);
     }
     public virtual bool CanSeeTarget(Vector2 target)
     {
-        RaycastHit2D rh = Physics2D.Raycast(transform.position, (target - (Vector2)transform.position).normalized, _sightDistance, GlobalVariableHelper.instance.solidLayerMask);
-        return rh.collider != null && rh.collider.gameObject != null;
+        RaycastHit2D rh = Physics2D.Raycast(transform.position, (target - (Vector2)transform.position).normalized, 
+            ((currentState != EnemyState.idle || currentIdleState != IdleState.searching) ? _sightDistance : _idleSightDistance), 
+            GlobalVariableHelper.instance.solidLayerMask);
+        return rh.collider == null || rh.collider.gameObject == null; //Only considers walls/obstacles
     }
     public virtual void UpdateRuntimeValues()
     {
@@ -319,12 +336,11 @@ public class EnemyBase : MonoBehaviour
         Transform currentMaxTransform = null;
         foreach (Collider2D col in cols)
         {
-            if (col.TryGetComponent<ItemBase>(out ItemBase ib))
+            if (col.TryGetComponent<PickupItem>(out PickupItem pi))
             {
-                Debug.LogError("UNFINISHED SCRIPT");
-                if (ib.isEdible && false/*Food value is higher*/)
+                if (pi.item.isEdible && ib._foodValue>currentMaxValue)
                 {
-                    currentMaxValue = 0/*Food value*/;
+                    currentMaxValue =ib._foodValue;
                     currentMaxTransform = col.transform;
                 }
             }
@@ -338,6 +354,19 @@ public class EnemyBase : MonoBehaviour
             }
         }
         return currentMaxTransform;
+    }
+    public virtual bool FindExplorationTarget()
+    {
+        for (int i = 0; i < 100; i++) {
+            if(NavMesh.SamplePosition(Random.insideUnitCircle * (_maxRoamingDistance + _maxRoamingDistanceVariance), out NavMeshHit hit, 2, NavMesh.AllAreas))
+            {
+                currentExplorationTarget = hit.position;
+                _navAgent.SetDestination(currentExplorationTarget);
+                return true;
+            }
+        }
+        Debug.LogError("UNABLE TO FIND EXPLORATION TARGET POINT");
+        return false;
     }
     #endregion
 }

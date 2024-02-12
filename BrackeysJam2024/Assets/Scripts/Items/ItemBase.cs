@@ -10,7 +10,7 @@ public class ItemBase : ScriptableObject
     public Sprite itemIcon;
     public int itemQuantity = 1;//how much item quanity per pickup
     public bool isEdible;
-    [SerializeField] private int _foodValue;
+    [SerializeField] public int _foodValue;
     public bool isFlammable;
     [SerializeField] private int _fuelValue;
     public int damageMulti;//Amount of damage the object deals
