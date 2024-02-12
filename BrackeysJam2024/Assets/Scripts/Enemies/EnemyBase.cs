@@ -19,8 +19,8 @@ public class EnemyBase : MonoBehaviour
     //Classifications are not perfect particularly for runtime v. static values
     #region Reference Fields
     [Header("Reference Fields")]
-    [SerializeField] NavMeshAgent _navAgent;
-    [SerializeField] Animator _animator;
+    [SerializeField] protected NavMeshAgent _navAgent;
+    [SerializeField] protected Animator _animator;
     #endregion
     #region Runtime Values
     [Header("Runtime Values")]
@@ -228,7 +228,7 @@ public class EnemyBase : MonoBehaviour
     public virtual void DefensiveTransitions()
     {
         Vector2 playerPos = PlayerMovement.instance.transform.position;
-        if (!_canSeePlayer) { _navAgent.speed = _agentSpeed; currentState = EnemyState.idle; }
+        if (!_canSeePlayer) { FindExplorationTarget(); _navAgent.speed = _agentSpeed; currentState = EnemyState.idle; }
         else if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance) { _navAgent.speed = _agentSpeed; currentState = EnemyState.aggressive; }
     }
     public virtual void AggressiveBehaviour()
@@ -246,7 +246,7 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void AggressiveTransitions() //Enemies will not naturally transition back to defensive unless overridden
     {
-        if (!_canSeePlayer) currentState = EnemyState.idle;
+        if (!_canSeePlayer){ FindExplorationTarget(); currentState = EnemyState.idle; }
     }
     #region Idle State Machine
     public virtual void ExploringBehaviour()
@@ -369,6 +369,11 @@ public class EnemyBase : MonoBehaviour
         }
         Debug.LogError("UNABLE TO FIND EXPLORATION TARGET POINT");
         return false;
+    }
+
+    public static float CalculateDistSqr(Vector2 a, Vector2 b)
+    {
+        return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
     }
     #endregion
 }

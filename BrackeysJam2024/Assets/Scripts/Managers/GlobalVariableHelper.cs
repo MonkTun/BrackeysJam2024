@@ -12,8 +12,11 @@ public class GlobalVariableHelper : MonoBehaviour
 	public const int MaxHotbarItems = 5;
 	public const int MaxItems = 20;
 
-
-	private void Awake()
+    public static float CalculateDistSqr(Vector2 a, Vector2 b)
+    {
+        return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    }
+    private void Awake()
     {
         if (instance == null)
         {
