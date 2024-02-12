@@ -3293,9 +3293,9 @@ MonoBehaviour:
   _timeBetweenSearchesVariance: 2
   _searchDuration: 3
   _searchDurationVariance: 3
-  _startSeeingPlayerThreshold: 3
-  _stopSeeingPlayerThreshold: 1
-  _forgetPlayerRate: 2
+  _startSeeingPlayerThreshold: 5
+  _stopSeeingPlayerThreshold: 3
+  _forgetPlayerRate: 1
   _timeBetweenAttacks: 1
   _attackDamage: 10
   _attackKnockback: 10

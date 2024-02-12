@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour, IInteractable
 {
-	[SerializeField] private ItemBase _item;
+	[SerializeField] public ItemBase _item;
 
 	// IInteractable IMPLEMENTATION
 

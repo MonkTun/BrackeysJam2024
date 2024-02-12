@@ -50,7 +50,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float _stopSeeingPlayerThreshold;
     protected float _lastSeenPlayerTime = -1000;
     protected float _seenPlayerDuration = 0;
-    protected const float _maxSeenPlayerDuration = 30;
+    protected const float _maxSeenPlayerDuration = 10;
     [SerializeField] protected float _forgetPlayerRate = 2;
     #endregion
     #region Attack Values
@@ -228,8 +228,8 @@ public class EnemyBase : MonoBehaviour
     public virtual void DefensiveTransitions()
     {
         Vector2 playerPos = PlayerMovement.instance.transform.position;
-        if (!_canSeePlayer) currentState = EnemyState.idle;
-        else if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance) currentState = EnemyState.aggressive;
+        if (!_canSeePlayer) { _navAgent.speed = _agentSpeed; currentState = EnemyState.idle; }
+        else if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance) { _navAgent.speed = _agentSpeed; currentState = EnemyState.aggressive; }
     }
     public virtual void AggressiveBehaviour()
     {
@@ -238,7 +238,9 @@ public class EnemyBase : MonoBehaviour
 
         if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&&Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance && CanSeePlayer())
         {
-            StartAttack();
+            Debug.Log("Disabled Attack for Now");
+            /*Disabled attack for now*/
+            //StartAttack();
         }
 
     }
@@ -338,9 +340,9 @@ public class EnemyBase : MonoBehaviour
         {
             if (col.TryGetComponent<PickupItem>(out PickupItem pi))
             {
-                if (pi.item.isEdible && ib._foodValue>currentMaxValue)
+                if (pi._item.isEdible && pi._item._foodValue > currentMaxValue)
                 {
-                    currentMaxValue =ib._foodValue;
+                    currentMaxValue =pi._item._foodValue;
                     currentMaxTransform = col.transform;
                 }
             }
