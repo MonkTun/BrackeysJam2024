@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     [SerializeField] private float initVelocity;
     [SerializeField] private float maxVelocity;
     [SerializeField] private float acceleration;
@@ -15,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private StaminaManager playerStaminaManager;
 
     private Rigidbody2D rb;
-
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
