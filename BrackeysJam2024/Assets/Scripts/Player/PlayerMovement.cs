@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private float yVelocity;
 
     [SerializeField] private float sprintRate;
+    [SerializeField] private float sprintStaminaDepleteRate;
+    private StaminaManager playerStaminaManager;
 
     private Rigidbody2D rb;
 
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerStaminaManager = GetComponent<StaminaManager>();
 
         xVelocity = 0f;
         yVelocity = 0f;
@@ -84,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             yVelocity = 0f;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerStaminaManager.changeStamina(-1f*sprintStaminaDepleteRate*Time.deltaTime);
         }
 
         //Debug.Log(rb.velocity);

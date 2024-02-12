@@ -605,6 +605,11 @@ GameObject:
   - component: {fileID: 4588369753581178053}
   - component: {fileID: 4588369753581178054}
   - component: {fileID: 1463366267}
+  - component: {fileID: 1463366268}
+  - component: {fileID: 1463366269}
+  - component: {fileID: 1463366272}
+  - component: {fileID: 1463366271}
+  - component: {fileID: 1463366270}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -693,9 +698,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initVelocity: 1.5
-  maxVelocity: 3.25
+  maxVelocity: 3
   acceleration: 10
-  sprintRate: 1.65
+  sprintRate: 1.8
+  sprintStaminaDepleteRate: 15
 --- !u!50 &4588369753581178053
 Rigidbody2D:
   serializedVersion: 4
@@ -746,3 +752,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateRoot: {fileID: 190756513}
+--- !u!114 &1463366268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda351393e0bd844989608a2ceef41d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 190756513}
+  _interactDistance: 3
+  _interactMask:
+    serializedVersion: 2
+    m_Bits: 9
+--- !u!114 &1463366269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cb5c13a80de88408a888be74dbc7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1463366272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5d015dde9ca1b4a9af53b25d903f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina: 0
+  maxStamina: 50
+  staminaRegenRate: 3
+--- !u!114 &1463366271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073be139956a17f47bd0472c707feb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+--- !u!114 &1463366270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588369753581178058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b812c7e971e264087acb995ff15a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  staminaBar: {fileID: 0}
