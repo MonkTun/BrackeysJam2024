@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBase : MonoBehaviour
+[CreateAssetMenu(menuName = "ScriptableObjects/Item", fileName = "ItemData")]
+public class ItemBase : ScriptableObject
 {
-    [Header("Item Info")]
+	[Header("Item Info")]
     public string itemName;
+    public Sprite itemIcon;
+    public int itemQuantity = 1;//how much item quanity per pickup
     public bool isEdible;
     [SerializeField] private int _foodValue;
     public bool isFlammable;

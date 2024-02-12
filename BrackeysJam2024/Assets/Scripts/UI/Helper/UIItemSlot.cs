@@ -10,12 +10,14 @@ public class UIItemSlot : MonoBehaviour
 
 	public void SetIcon(Sprite icon)
 	{
+		_iconImg.gameObject.SetActive(icon != null);
 		_iconImg.sprite = icon;
 	}
 
 	public void SetCount(int count)
 	{
-		_countTxt.text = count.ToString();
+			
+		_countTxt.text = count <= 1 ? string.Empty : count.ToString();
 	}
 
 	public void SetHighlighter(bool enable)
