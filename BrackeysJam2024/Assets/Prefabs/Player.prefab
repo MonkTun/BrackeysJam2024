@@ -816,6 +816,7 @@ MonoBehaviour:
   acceleration: 10
   sprintRate: 1.8
   sprintStaminaDepleteRate: 15
+  isSprinting: 0
 --- !u!50 &4588369753581178053
 Rigidbody2D:
   serializedVersion: 4
@@ -938,7 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   maxHunger: 100
-  hungerDepletionRate: 1
+  baseHungerDepletionRate: 0.5
+  sprintHungerDepletionRate: 2
 --- !u!114 &1463366262
 MonoBehaviour:
   m_ObjectHideFlags: 0

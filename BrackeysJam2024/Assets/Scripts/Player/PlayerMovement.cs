@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float sprintRate;
     [SerializeField] private float sprintStaminaDepleteRate;
+    [HideInInspector] public bool isSprinting;
+
     private StaminaManager playerStaminaManager;
 
     private Rigidbody2D rb;
@@ -96,10 +98,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            isSprinting = true;
             playerStaminaManager.changeStamina(-1f*sprintStaminaDepleteRate*Time.deltaTime);
+        }
+        else
+        {
+            isSprinting = false;
         }
 
         //Debug.Log(rb.velocity);
-        rb.velocity = new Vector2(xVelocity, yVelocity)*(Input.GetKey(KeyCode.LeftShift)? sprintRate : 1f);
+        rb.velocity = new Vector2(xVelocity, yVelocity) * (isSprinting ? sprintRate:1f);
     }
 }
