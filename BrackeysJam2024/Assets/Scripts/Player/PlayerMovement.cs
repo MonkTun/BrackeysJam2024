@@ -36,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.canPlayerControl == false)
+        {
+            rb.velocity = Vector2.zero; return; 
+        }
+
         //Horizontal input
         if (Input.GetKey(KeyCode.A))
         {

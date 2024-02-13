@@ -1036,6 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateRoot: {fileID: 190756513}
+  _aimSpeed: 30
 --- !u!114 &1463366268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _root: {fileID: 190756513}
-  _interactDistance: 3
+  _interactDistance: 2
   _interactMask:
     serializedVersion: 2
     m_Bits: 9

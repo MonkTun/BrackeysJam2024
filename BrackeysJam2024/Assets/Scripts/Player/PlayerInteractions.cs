@@ -67,7 +67,7 @@ public class PlayerInteractions : MonoBehaviour
 				if (interactable.InteractCheck(out string message)) 
 				{
 					_selectedInteractable = interactable;
-					UIManager.Instance.InteractionUI.UpdateIteraction(hit.transform.position, message);
+					UIManager.Instance.InteractionUI.UpdateIteraction(hit.transform, message);
 				}
 
 				return;

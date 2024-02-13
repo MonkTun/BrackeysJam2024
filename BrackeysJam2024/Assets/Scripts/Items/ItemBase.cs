@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Item", fileName = "ItemData")]
 public class ItemBase : ScriptableObject
 {
-	[Header("Item Info")]
+    [Header("Item Info")]
+    public PickupItem pickupItem;
     public string itemName;
     public Sprite itemIcon;
     public int itemQuantity = 1;//how much item quanity per pickup
