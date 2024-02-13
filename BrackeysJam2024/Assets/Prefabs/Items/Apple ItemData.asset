@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe194b23408d61469406a106a4959ce, type: 3}
   m_Name: Apple ItemData
   m_EditorClassIdentifier: 
+  pickupItem: {fileID: 7799608088300343912, guid: 90006bf6df371be439451f27f0aab331, type: 3}
   itemName: Apple
   itemIcon: {fileID: 1400600753, guid: 455b85c26a7417d469d205eb1fea015d, type: 3}
   itemQuantity: 1

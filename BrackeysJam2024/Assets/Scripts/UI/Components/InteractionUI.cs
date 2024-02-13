@@ -11,29 +11,32 @@ public class InteractionUI : MonoBehaviour
 
 	[SerializeField] private float _snapSpeed = 10;
 	[SerializeField] private float _fadeSpeed = 2;
+	[SerializeField] private float _startFadingTime = 0.1f;
 
-	private Vector2 _lastInteractionPosition;
+	private Transform _lastInteractionPosition;
 
-    public void UpdateIteraction(Vector2 interactionPosition, string itemName)
+	private float _lastInteractionTime;
+
+    public void UpdateIteraction(Transform interactionPosition, string itemName)
     {
-		if (_lastInteractionPosition == interactionPosition)
-		{
-			_interactionUI.transform.position = Vector2.Lerp(_interactionUI.transform.position, Camera.main.WorldToScreenPoint(interactionPosition), _snapSpeed * Time.deltaTime);
-		} 
-		else
-		{
-			_interactionUI.transform.position = Camera.main.WorldToScreenPoint(interactionPosition);
-		}
-
 		_lastInteractionPosition = interactionPosition;
 
 		_interactionText.text = "F - " + itemName;
 
+		_lastInteractionTime = Time.time;
+
 		_interactionCanvasGroup.alpha = 1;
+
 	}
 
 	private void Update()
 	{
-		_interactionCanvasGroup.alpha -= Time.deltaTime * _fadeSpeed;
+		if (_lastInteractionPosition != null)
+			_interactionUI.transform.position = Camera.main.WorldToScreenPoint(_lastInteractionPosition.position);
+
+		if (_lastInteractionTime + _startFadingTime < Time.time)
+		{
+			_interactionCanvasGroup.alpha -= Time.deltaTime * _fadeSpeed;
+		}
 	}
 }

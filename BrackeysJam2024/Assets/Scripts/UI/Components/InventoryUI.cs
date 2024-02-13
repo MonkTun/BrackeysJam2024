@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 
 public class InventoryUI : MonoBehaviour
 {
+	public bool IsDraggerDropped => _isDraggerDropped;
+
 	[SerializeField] private Transform _backpackContent, _hotbarContent;
 	[SerializeField] private UIItemSlot _slotPrefab;
 
@@ -22,6 +24,8 @@ public class InventoryUI : MonoBehaviour
 	private List<InventoryItem> _backpackItemList;
 
 	private PlayerInventory _playerInventory;
+
+	private bool _isDraggerDropped;
 
 	// MONOBEHAVIOUR
 
@@ -94,6 +98,8 @@ public class InventoryUI : MonoBehaviour
 		_draggerRect.gameObject.SetActive(true);
 		_draggerIconImg.sprite = sprite;
 		_draggerCountTxt.text = count.ToString();
+
+		_isDraggerDropped = false;
 	}
 
 	public void DragUpdate(Vector2 additiveDelta)
@@ -104,6 +110,11 @@ public class InventoryUI : MonoBehaviour
 	public void DragEnd()
 	{
 		_draggerRect.gameObject.SetActive(false);
+	}
+
+	public void DragDropped()
+	{
+		_isDraggerDropped = true;
 	}
 
 	public void RefreshInventory()
@@ -125,5 +136,10 @@ public class InventoryUI : MonoBehaviour
 		}
 
 		_playerInventory.UpdateInventory(_hotbarItemList, _backpackItemList);
+	}
+
+	public void RemoveItem()
+	{
+
 	}
 }

@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				GameManager.Instance.canPlayerControl = true;
 
 				break;
 			case ViewState.Inventory:
@@ -74,6 +75,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				GameManager.Instance.canPlayerControl = false;
 
 				break;
 
@@ -84,6 +86,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(true);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				GameManager.Instance.canPlayerControl = false;
 
 				break;
 
@@ -94,6 +97,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(true);
 				deathPanel.SetActive(false);
+				GameManager.Instance.canPlayerControl = false;
 
 				break;
 			case ViewState.Death:
@@ -103,6 +107,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(true);
+				GameManager.Instance.canPlayerControl = false;
 
 				break;
 		}

@@ -3,9 +3,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// DEPRECATED
-/// </summary>
 public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
 	[SerializeField] private RectTransform _rectTransform;
@@ -24,7 +21,7 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 		_uiInventory = uiInventory;
 	}
 
-	public void SetItem(InventoryItem newItem)
+	public void SetItem(InventoryItem newItem, bool alsoRefresh = false)
 	{
 		InventoryItem = newItem;
 
@@ -37,6 +34,9 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 			SetIcon(null);
 			SetCount(-1);
 		}
+
+		if (alsoRefresh)
+			_uiInventory.RefreshInventory();
 	}
 	public void SetHighlighter(bool enable)
 	{
@@ -95,7 +95,9 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 	{
 		//Debug.Log("OnDrop");
 
-		if (eventData.pointerDrag != null) 
+		if (_uiInventory.IsDraggerDropped) return;
+
+        if (eventData.pointerDrag != null) 
 		{
 			var toSwapSlot = eventData.pointerDrag.GetComponent<UIItemSlot>();
 
@@ -109,10 +111,10 @@ public class UIItemSlot : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 				{
 					SetItem(newItem);
 				}
-
 			}
 
 		} 
 		_uiInventory.RefreshInventory();
+		_uiInventory.DragDropped();
 	}
 }
