@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abe194b23408d61469406a106a4959ce, type: 3}
-  m_Name: Apple ItemData
+  m_Name: Bread ItemData
   m_EditorClassIdentifier: 
-  itemName: Apple
-  itemIcon: {fileID: 1400600753, guid: 455b85c26a7417d469d205eb1fea015d, type: 3}
+  itemName: Bread
+  itemIcon: {fileID: 1916953745, guid: 4563326d58e422c44a9395fc5758549f, type: 3}
   itemQuantity: 1
   isEdible: 1
   _foodValue: 20
