@@ -30,6 +30,7 @@ public class GlobalSceneManager : MonoBehaviour
     }
 
 	// Hello Henry below is from my SceneLoader
+	// Ok YJ i dont have a loadpanel but i just assumed it works
 
 	public void OpenGameAsync(string sceneName) 
 	{
