@@ -8,17 +8,19 @@ public class StaminaManager : MonoBehaviour
     public float maxStamina;
 
     [SerializeField] private float staminaRegenRate;
+    [HideInInspector] public float staminaRegenBoost;
 
     // Start is called before the first frame update
     void Start()
     {
         stamina = maxStamina;
+        staminaRegenBoost = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        changeStamina(staminaRegenRate * Time.deltaTime);
+        changeStamina((staminaRegenRate+staminaRegenBoost) * Time.deltaTime);
         UIManager.Instance.PlayerUI.UpdateStaminaBar(stamina, maxStamina);
     }
 
