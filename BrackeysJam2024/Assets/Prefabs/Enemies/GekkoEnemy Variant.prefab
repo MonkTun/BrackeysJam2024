@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &929581941183035755
+--- !u!1001 &294224449912583978
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -51,40 +51,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
-      propertyPath: m_Color.g
-      value: 0.50240415
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
-      propertyPath: m_Color.r
-      value: 0.1745283
-      objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_Name
-      value: WolfEnemy
+      value: GekkoEnemy Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
---- !u!1 &7506174413280143727 stripped
+--- !u!1 &6978481080603207470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
-  m_PrefabInstance: {fileID: 929581941183035755}
+  m_PrefabInstance: {fileID: 294224449912583978}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &165598539334625971
+--- !u!50 &2243398345338944262
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978481080603207470}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &7382084005969790305
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978481080603207470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1532032721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7506174413280143727}
+  m_GameObject: {fileID: 6978481080603207470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ddfe41c182ec943af7987fd436c1a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0829f6e6ccea5674fbcc910d3dba6053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _navAgent: {fileID: 0}
@@ -93,32 +118,91 @@ MonoBehaviour:
   currentIdleState: 0
   baseLocation: {fileID: 0}
   currentExplorationTarget: {x: 0, y: 0}
-  _timeBetweenSearches: 5
-  _timeBetweenSearchesVariance: 2
-  _searchDuration: 3
-  _searchDurationVariance: 1
-  _startSeeingPlayerThreshold: 5
-  _stopSeeingPlayerThreshold: 3
-  _forgetPlayerRate: 1
+  _timeBetweenSearches: Infinity
+  _timeBetweenSearchesVariance: 0
+  _searchDuration: 0
+  _searchDurationVariance: 0
+  _startSeeingPlayerThreshold: 0
+  _stopSeeingPlayerThreshold: 0
+  _forgetPlayerRate: 2
   _timeBetweenAttacks: 1
   _attackDamage: 10
-  _attackKnockback: 10
+  _attackKnockback: 5
   _attackOffset: {x: 0, y: 0}
-  _attackRadius: 1
+  _attackRadius: 0
   _attackLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  _sightDistance: 8
-  _idleSightDistance: 4
-  _canBeDefensive: 1
-  _minDefensiveDistance: 3
-  _startAttackRange: 1.5
-  _agentSpeed: 2
-  _maxRoamingDistance: 30
-  _maxRoamingDistanceVariance: 20
-  _playerFoodValue: 5
-  _minRetreatingBaseDistance: 5
-  wolfBase: {fileID: 0}
-  _packDistance: 5
-  _minWolvesForPack: 3
-  _timeBetweenHowls: 5
+  _sightDistance: 100
+  _idleSightDistance: 100
+  _canBeDefensive: 0
+  _minDefensiveDistance: 0
+  _startAttackRange: 0
+  _agentSpeed: 1
+  _maxRoamingDistance: 50
+  _maxRoamingDistanceVariance: 0
+  _playerFoodValue: 100
+  _minRetreatingBaseDistance: 0
+  _startTransformingDistance: 15
+  _stopTransformingDistance: 20
+  _resetHuntDistance: 40
+  _transformingRate: 0.2
+  _transformingPercentageToAlpha:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.075471625
+      outSlope: 0.075471625
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33125
+    - serializedVersion: 3
+      time: 1
+      value: 0.05
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38125002
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _transformingPercentageToSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.49425292
+      outSlope: -0.49425292
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: -6.7499986
+      outSlope: -6.7499986
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.100000024
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -Infinity
+      outSlope: -Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rend: {fileID: 0}
+  _invisibleTransformationThreshold: 0.5

@@ -85,7 +85,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float _minRetreatingBaseDistance;
     #endregion
     #region Unity Functions
-    private void Awake()
+    protected virtual void Awake()
     {
         if (_navAgent == null) { _navAgent = GetComponent<NavMeshAgent>(); }
         _navAgent.speed = _agentSpeed;
@@ -94,12 +94,12 @@ public class EnemyBase : MonoBehaviour
         if (_animator == null) { _animator = GetComponent<Animator>(); }
         UpdateRuntimeValues();
     }
-    private void Start()
+    protected virtual void Start()
     {
         //Set new exploration target
         FindExplorationTarget();
     }
-    void Update()
+    protected virtual void Update()
     {
         //Update whether enemy can see player
         UpdateCanSeePlayer();
