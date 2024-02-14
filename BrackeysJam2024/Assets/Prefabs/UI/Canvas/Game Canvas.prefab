@@ -1986,7 +1986,6 @@ MonoBehaviour:
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 2
   _investigateText: {fileID: 7226186842538114810}
-  itemEffects: {fileID: 0}
 --- !u!1 &678815655660373670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,10 +2253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2436, y: 1125}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2451,7 +2450,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -2762,7 +2761,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 678815657372195685}
   m_HandleRect: {fileID: 678815657372195684}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3606,7 +3605,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3754,7 +3753,6 @@ MonoBehaviour:
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 3
   _investigateText: {fileID: 7226186842538114810}
-  itemEffects: {fileID: 0}
 --- !u!1 &826982850353814308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,7 +3859,6 @@ MonoBehaviour:
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 1
   _investigateText: {fileID: 7226186842538114810}
-  itemEffects: {fileID: 0}
 --- !u!1 &889469138944264206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,7 +3965,6 @@ MonoBehaviour:
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 0
   _investigateText: {fileID: 7226186842538114810}
-  itemEffects: {fileID: 0}
 --- !u!1 &889469140238776192
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,8 +5027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 500}
-  m_SizeDelta: {x: 800, y: 400}
+  m_AnchoredPosition: {x: 650, y: 50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4201132589001994236
 CanvasRenderer:
@@ -5096,8 +5092,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
