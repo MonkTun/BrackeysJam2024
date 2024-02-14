@@ -1127,8 +1127,8 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.04
-  flicker: 0.075
+  brightnessDepletionRate: 0.025
+  flicker: 0.05
   flickerFrequency: 2
   isLampOn: 0
   torch: {fileID: 740563281}
