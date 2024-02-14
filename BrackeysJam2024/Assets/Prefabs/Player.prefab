@@ -440,7 +440,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.5
-  m_PointLightOuterRadius: 1.4
+  m_PointLightOuterRadius: 1.25
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -592,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 1374255029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1.25}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 190756513}
@@ -1128,6 +1128,7 @@ MonoBehaviour:
   minBrightness: 0
   brightness: 0
   brightnessDepletionRate: 0.04
+  isLampOn: 0
   torch: {fileID: 740563281}
   lightNearPlayer: {fileID: 1999521026}
   mainLightRay: {fileID: 1926453215}
