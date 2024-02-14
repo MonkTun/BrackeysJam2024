@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 		GamePlay,
 		Paused,
 		Inventory,
+		Crafting,
 		Settings,
 		Death
 	}
@@ -21,7 +22,7 @@ public class UIManager : MonoBehaviour
 	public InteractionUI InteractionUI => _interactionUI;
 
 
-	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, settingsPanel, deathPanel; 
+	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel; 
 
 	private InventoryUI _inventory;
 	private PlayerUI _playerUI;
@@ -65,6 +66,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				craftingPanel.SetActive(false);
 				GameManager.Instance.canPlayerControl = true;
 
 				break;
@@ -75,6 +77,19 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				craftingPanel.SetActive(false);
+				GameManager.Instance.canPlayerControl = false;
+
+				break;
+
+			case ViewState.Crafting:
+
+				gameplayPanel.SetActive(true);
+				inventoryPanel.SetActive(true);
+				pausedPanel.SetActive(false);
+				settingsPanel.SetActive(false);
+				deathPanel.SetActive(false);
+				craftingPanel.SetActive(true);
 				GameManager.Instance.canPlayerControl = false;
 
 				break;
@@ -86,6 +101,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(true);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(false);
+				craftingPanel.SetActive(false);
 				GameManager.Instance.canPlayerControl = false;
 
 				break;
@@ -97,6 +113,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(true);
 				deathPanel.SetActive(false);
+				craftingPanel.SetActive(false);
 				GameManager.Instance.canPlayerControl = false;
 
 				break;
@@ -107,6 +124,7 @@ public class UIManager : MonoBehaviour
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
 				deathPanel.SetActive(true);
+				craftingPanel.SetActive(false);
 				GameManager.Instance.canPlayerControl = false;
 
 				break;
