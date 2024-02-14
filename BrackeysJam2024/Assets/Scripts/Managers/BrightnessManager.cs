@@ -14,6 +14,10 @@ public class BrightnessManager : MonoBehaviour
     [SerializeField] private int flickerFrequency; //flickers every N frames
     private int flickerFrequencyCnt;
 
+    [SerializeField] private float startFlickeringBrigtness = 0.35f;
+
+    [SerializeField] private Transform torchSpriteMaskScaler;
+
     [HideInInspector] public bool isLampOn;
 
     public Light2D torch;
@@ -44,36 +48,51 @@ public class BrightnessManager : MonoBehaviour
         lightSpreadBaseIntensity = lightSpread.intensity;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
             isLampOn = !isLampOn;
-        }
+		}
         
         if (isLampOn)
         {
             changeBrightness(-1f * brightnessDepletionRate * Time.deltaTime);
 
-            float noise;
-            flickerFrequencyCnt++;
-            if (flickerFrequencyCnt == flickerFrequency)
+            float noise = 0;
+
+            if (brightness < startFlickeringBrigtness)
             {
-                flickerFrequencyCnt = 0;
-                noise = Random.Range(-1f*flicker, flicker);
+
+                flickerFrequencyCnt++;
+                if (flickerFrequencyCnt == flickerFrequency)
+                {
+                    flickerFrequencyCnt = 0;
+                    noise = Random.Range(-1f * flicker, flicker) * (brightness / startFlickeringBrigtness);
+                }
+                else
+                {
+                    noise = 0f;
+                }
             }
-            else
-            {
-                noise = 0f;
-            }
+
 
             torch.intensity = torchBaseIntensity * brightness+noise;
             lightNearPlayer.intensity = lightNearPlayerBaseIntensity * brightness+noise;
             mainLightRay.intensity = mainLightRayBaseIntensity * brightness+noise;
             lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness+noise;
             lightSpread.intensity = lightSpreadBaseIntensity * brightness+noise;
-        }
+
+
+            if (brightness < startFlickeringBrigtness)
+            {
+				torchSpriteMaskScaler.localScale = new Vector2(brightness / startFlickeringBrigtness, brightness / startFlickeringBrigtness);
+			} else
+            {
+				torchSpriteMaskScaler.localScale = new Vector2(1, 1);
+			}
+		}
         else
         {
             torch.intensity = 0f;
@@ -81,7 +100,9 @@ public class BrightnessManager : MonoBehaviour
             mainLightRay.intensity = 0f;
             lightMuzzle.intensity = 0f;
             lightSpread.intensity = 0f;
-        }
+
+			torchSpriteMaskScaler.localScale = Vector2.zero;
+		}
 
 		UIManager.Instance.PlayerUI.UpdateLightBar(brightness, maxBrightness);
 	}
