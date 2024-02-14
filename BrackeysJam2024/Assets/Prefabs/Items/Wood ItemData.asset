@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abe194b23408d61469406a106a4959ce, type: 3}
-  m_Name: Small Fuel ItemData
+  m_Name: Wood ItemData
   m_EditorClassIdentifier: 
   pickupItem: {fileID: 7799608088300343912, guid: adf83154fd306db49b1ba1124cea155b, type: 3}
-  itemName: Small Fuel
-  itemIcon: {fileID: 2083789103, guid: 455b85c26a7417d469d205eb1fea015d, type: 3}
+  itemName: Wood Plank
+  itemIcon: {fileID: 21300000, guid: b2d50e3796af23f49913cbada5235311, type: 3}
   itemQuantity: 1
-  isEdible: 1
+  isEdible: 0
   _foodValue: 5
   isFlammable: 1
-  _fuelValue: 10
+  _fuelValue: 0
   damageMulti: 0
   isDropped: 0

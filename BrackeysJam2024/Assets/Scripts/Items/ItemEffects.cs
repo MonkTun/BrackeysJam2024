@@ -8,6 +8,9 @@ public class ItemEffects : MonoBehaviour
     private StaminaManager staminaManager;
     private HungerManager hungerManager;
     private BrightnessManager brightnessManager;
+
+    [Header("Paper")]
+    [SerializeField] private float paperFuelValue;
     
     [Header("Bread")]
     [SerializeField] private float breadValue;
@@ -31,6 +34,7 @@ public class ItemEffects : MonoBehaviour
     [SerializeField] private float alcoholStaminaBoostDuration;
 
     [Header("Bandage")]
+    [SerializeField] private float bandageFuelValue;
     [SerializeField] private float bandageHealValue;
     [SerializeField] private float bandageUseDuration;
 
@@ -64,6 +68,11 @@ public class ItemEffects : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BurnPaper()
+    {
+        brightnessManager.changeBrightness(paperFuelValue);
     }
 
     public void EatBread()
@@ -122,6 +131,11 @@ public class ItemEffects : MonoBehaviour
         staminaManager.staminaRegenBoost = 0f;
     }
 
+    public void BurnBandage()
+    {
+        brightnessManager.changeBrightness(bandageFuelValue);
+    }
+
     public void UseBandage()
     {
         StartCoroutine(UseBandageCoroutine());
@@ -129,8 +143,10 @@ public class ItemEffects : MonoBehaviour
 
     private IEnumerator UseBandageCoroutine() //Needs UI Indication & restrict movement
     {
+        GameManager.Instance.canPlayerControl = false;
         yield return new WaitForSeconds(bandageUseDuration);
         healthManager.changeHealth(bandageHealValue);
+        GameManager.Instance.canPlayerControl = true;
     }
 
     public void BurnWood()

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3074135954567170050, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
       propertyPath: m_Name
-      value: Item Bread Pickup
+      value: Item Raw Meat Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 3074135954567170172, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
       propertyPath: m_RootOrder
@@ -74,11 +74,11 @@ PrefabInstance:
     - target: {fileID: 3074135954567170173, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1916953745, guid: 4563326d58e422c44a9395fc5758549f, type: 3}
+      objectReference: {fileID: -296287314, guid: 4563326d58e422c44a9395fc5758549f, type: 3}
     - target: {fileID: 3074135954567170174, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
       propertyPath: _item
       value: 
-      objectReference: {fileID: 11400000, guid: 34ff76544ecb2f148926eafe6518e442, type: 2}
+      objectReference: {fileID: 11400000, guid: 11e4041e8c8d9be4ba1e91afeab22eec, type: 2}
     - target: {fileID: 3074135954567170175, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
       propertyPath: m_Size.x
       value: 0.24881601

@@ -11,7 +11,7 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 	{
 		Drop,
 		Burn,
-		Eat,
+		Use,
 		Look
 	}
 
@@ -21,9 +21,9 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 
 	[SerializeField] private TMP_Text _investigateText;
 
-	private PlayerAiming _playerAiming; // lucas you might want to get reference whatever hunger system player has 
+	private PlayerAiming _playerAiming;
 
-
+	[SerializeField] private ItemEffects itemEffects;
 
 	void OnDisable()
 	{
@@ -53,7 +53,7 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 
 						if (_playerAiming != null)
 						{
-							Debug.Log("dropping" + fromSlot.InventoryItem.ItemBase.itemName);
+							Debug.Log("dropping " + fromSlot.InventoryItem.ItemBase.itemName);
 							Instantiate(fromSlot.InventoryItem.ItemBase.pickupItem, _playerAiming.currentPos, Quaternion.identity);
 						}
 
@@ -72,6 +72,28 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 						break;
 
 					case ItemDropActions.Burn:
+						switch (fromSlot.InventoryItem.ItemBase.itemName)
+						{
+							case "Paper":
+								itemEffects.BurnPaper();
+								break;
+							case "Alcohol":
+								itemEffects.BurnAlcohol();
+								break;
+							case "Wood Plank":
+								itemEffects.BurnWood();
+								break;
+							case "Bandage":
+								itemEffects.BurnBandage();
+								break;
+							case "Barricade":
+								itemEffects.BurnBarricade();
+								break;
+							default:
+								_investigateText.text=fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!";
+								return;
+						}
+						_investigateText.text = "burned " + fromSlot.InventoryItem.ItemBase.itemName;
 
 						fromSlot.InventoryItem.ItemQuantity--;
 
@@ -83,12 +105,37 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 						{
 							fromSlot.SetItem(fromSlot.InventoryItem, true);
 						}
-
-						//TODO add to lightmeter
 
 						break;
 
-					case ItemDropActions.Eat:
+					case ItemDropActions.Use:
+						switch (fromSlot.InventoryItem.ItemBase.itemName) //Each item has diff text so I set them separately
+                        {
+							case "Bread":
+								itemEffects.EatBread();
+								_investigateText.text = "ate bread";
+								break;
+							case "Raw Meat":
+								itemEffects.EatRawMeat();
+								_investigateText.text = "ate raw meat...it's poisoned!";
+								break;
+							case "Cooked Meat":
+								itemEffects.EatCookedMeat();
+								_investigateText.text = "ate cooked meat...regenerating health!";
+								break;
+							case "Alcohol":
+								itemEffects.DrinkAlcohol();
+								_investigateText.text = "drank alcohol...stamina boosted!";
+								break;
+							case "Bandage":
+								itemEffects.UseBandage();
+								_investigateText.text = "using bandage...";
+								break;
+							//TODO Candlestick, Plate, Axe, Mirror, Glass Shard
+							default:
+								_investigateText.text = fromSlot.InventoryItem.ItemBase.itemName+" cannot be used!";
+								return;
+						}
 
 						fromSlot.InventoryItem.ItemQuantity--;
 
@@ -100,8 +147,6 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 						{
 							fromSlot.SetItem(fromSlot.InventoryItem, true);
 						}
-
-						//TODO add to health
 
 						break;
 
