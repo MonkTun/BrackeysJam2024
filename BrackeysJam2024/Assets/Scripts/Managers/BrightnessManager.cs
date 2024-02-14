@@ -60,21 +60,18 @@ public class BrightnessManager : MonoBehaviour
         {
             changeBrightness(-1f * brightnessDepletionRate * Time.deltaTime);
 
-            float noise = 0;
+            float noise = 0f;
 
-            if (brightness < startFlickeringBrigtness)
+            flickerFrequencyCnt++;
+            if (flickerFrequencyCnt == flickerFrequency)//&& brightness < startFlickeringBrigtness
             {
-
-                flickerFrequencyCnt++;
-                if (flickerFrequencyCnt == flickerFrequency)
-                {
-                    flickerFrequencyCnt = 0;
-                    noise = Random.Range(-1f * flicker, flicker) * (brightness / startFlickeringBrigtness);
-                }
-                else
-                {
-                    noise = 0f;
-                }
+                flickerFrequencyCnt = 0;
+                noise = Random.Range(-1f * flicker, flicker);
+                //noise = Random.Range(-1f * flicker, flicker) * (brightness / startFlickeringBrigtness);
+            }
+            else
+            {
+                noise = 0f;
             }
 
 
