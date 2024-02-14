@@ -10,6 +10,8 @@ public class BrightnessManager : MonoBehaviour
     [HideInInspector] public float brightness; //light intensity = default intensity * brightness
     [SerializeField] private float brightnessDepletionRate;
 
+    [HideInInspector] public bool isLampOn;
+
     public Light2D torch;
     public Light2D lightNearPlayer;
     public Light2D mainLightRay;
@@ -27,6 +29,8 @@ public class BrightnessManager : MonoBehaviour
     {
         brightness = maxBrightness;
 
+        isLampOn = true;
+
         torchBaseIntensity = torch.intensity;
         lightNearPlayerBaseIntensity = lightNearPlayer.intensity;
         mainLightRayBaseIntensity = mainLightRay.intensity;
@@ -37,13 +41,29 @@ public class BrightnessManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        changeBrightness(-1f * brightnessDepletionRate * Time.deltaTime);
+        if (Input.GetMouseButtonDown(1))
+        {
+            isLampOn = !isLampOn;
+        }
+        
+        if (isLampOn)
+        {
+            changeBrightness(-1f * brightnessDepletionRate * Time.deltaTime);
 
-        torch.intensity = torchBaseIntensity * brightness;
-        lightNearPlayer.intensity = lightNearPlayerBaseIntensity * brightness;
-        mainLightRay.intensity = mainLightRayBaseIntensity * brightness;
-        lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness;
-        lightSpread.intensity = lightSpreadBaseIntensity * brightness;
+            torch.intensity = torchBaseIntensity * brightness;
+            lightNearPlayer.intensity = lightNearPlayerBaseIntensity * brightness;
+            mainLightRay.intensity = mainLightRayBaseIntensity * brightness;
+            lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness;
+            lightSpread.intensity = lightSpreadBaseIntensity * brightness;
+        }
+        else
+        {
+            torch.intensity = 0f;
+            lightNearPlayer.intensity = 0f;
+            mainLightRay.intensity = 0f;
+            lightMuzzle.intensity = 0f;
+            lightSpread.intensity = 0f;
+        }
 
 		UIManager.Instance.PlayerUI.UpdateLightBar(brightness, maxBrightness);
 	}
