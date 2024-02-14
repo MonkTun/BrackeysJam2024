@@ -10,6 +10,10 @@ public class BrightnessManager : MonoBehaviour
     [HideInInspector] public float brightness; //light intensity = default intensity * brightness
     [SerializeField] private float brightnessDepletionRate;
 
+    [SerializeField] private float flicker;
+    [SerializeField] private int flickerFrequency; //flickers every N frames
+    private int flickerFrequencyCnt;
+
     [HideInInspector] public bool isLampOn;
 
     public Light2D torch;
@@ -31,6 +35,8 @@ public class BrightnessManager : MonoBehaviour
 
         isLampOn = true;
 
+        flickerFrequencyCnt = 0;
+
         torchBaseIntensity = torch.intensity;
         lightNearPlayerBaseIntensity = lightNearPlayer.intensity;
         mainLightRayBaseIntensity = mainLightRay.intensity;
@@ -50,11 +56,23 @@ public class BrightnessManager : MonoBehaviour
         {
             changeBrightness(-1f * brightnessDepletionRate * Time.deltaTime);
 
-            torch.intensity = torchBaseIntensity * brightness;
-            lightNearPlayer.intensity = lightNearPlayerBaseIntensity * brightness;
-            mainLightRay.intensity = mainLightRayBaseIntensity * brightness;
-            lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness;
-            lightSpread.intensity = lightSpreadBaseIntensity * brightness;
+            float noise;
+            flickerFrequencyCnt++;
+            if (flickerFrequencyCnt == flickerFrequency)
+            {
+                flickerFrequencyCnt = 0;
+                noise = Random.Range(-1f*flicker, flicker);
+            }
+            else
+            {
+                noise = 0f;
+            }
+
+            torch.intensity = torchBaseIntensity * brightness+noise;
+            lightNearPlayer.intensity = lightNearPlayerBaseIntensity * brightness+noise;
+            mainLightRay.intensity = mainLightRayBaseIntensity * brightness+noise;
+            lightMuzzle.intensity = lightMuzzleBaseIntensity * brightness+noise;
+            lightSpread.intensity = lightSpreadBaseIntensity * brightness+noise;
         }
         else
         {

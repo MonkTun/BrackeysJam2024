@@ -1128,6 +1128,9 @@ MonoBehaviour:
   minBrightness: 0
   brightness: 0
   brightnessDepletionRate: 0.04
+  flicker: 0.075
+  flickerFrequency: 2
+  isLampOn: 0
   torch: {fileID: 740563281}
   lightNearPlayer: {fileID: 1999521026}
   mainLightRay: {fileID: 1926453215}
