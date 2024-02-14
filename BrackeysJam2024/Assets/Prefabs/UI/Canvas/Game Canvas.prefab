@@ -467,8 +467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10.000002, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &311878719
 GameObject:
@@ -693,8 +693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &562263611
 GameObject:
@@ -1651,8 +1651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -9.999994, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1777840474
 GameObject:
@@ -1725,8 +1725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10.000003, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1880232589
 GameObject:
@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 5059317763735314488}
   - component: {fileID: 4174002489661618903}
   m_Layer: 5
-  m_Name: ActionSlot - Eat
+  m_Name: ActionSlot - Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,7 +1985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 2
-  _investigateText: {fileID: 0}
+  _investigateText: {fileID: 7226186842538114810}
+  itemEffects: {fileID: 0}
 --- !u!1 &678815655660373670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2351,7 @@ MonoBehaviour:
   _interactionCanvasGroup: {fileID: 532187352099522306}
   _snapSpeed: 25
   _fadeSpeed: 5
+  _startFadingTime: 0.1
 --- !u!1 &678815656470322524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2451,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -3604,7 +3606,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3751,7 +3753,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 3
-  _investigateText: {fileID: 0}
+  _investigateText: {fileID: 7226186842538114810}
+  itemEffects: {fileID: 0}
 --- !u!1 &826982850353814308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,7 +3860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 1
-  _investigateText: {fileID: 0}
+  _investigateText: {fileID: 7226186842538114810}
+  itemEffects: {fileID: 0}
 --- !u!1 &889469138944264206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,7 +3967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryUI: {fileID: 1581228799886944028}
   _dropActions: 0
-  _investigateText: {fileID: 0}
+  _investigateText: {fileID: 7226186842538114810}
+  itemEffects: {fileID: 0}
 --- !u!1 &889469140238776192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,8 +4172,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: F - itemName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: be816cca72328af4a8240644bc3cc805, type: 2}
-  m_sharedMaterial: {fileID: 8482599270596933, guid: be816cca72328af4a8240644bc3cc805, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4697,7 +4702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: eat
+  m_text: use
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be816cca72328af4a8240644bc3cc805, type: 2}
   m_sharedMaterial: {fileID: 8482599270596933, guid: be816cca72328af4a8240644bc3cc805, type: 2}

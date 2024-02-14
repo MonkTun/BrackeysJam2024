@@ -22,8 +22,7 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 	[SerializeField] private TMP_Text _investigateText;
 
 	private PlayerAiming _playerAiming;
-
-	[SerializeField] private ItemEffects itemEffects;
+	private ItemEffects _itemEffects;
 
 	void OnDisable()
 	{
@@ -66,28 +65,28 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 							fromSlot.SetItem(fromSlot.InventoryItem, true);
 						}
 
-
-						//TODO instantiate item pickup item
-
 						break;
 
 					case ItemDropActions.Burn:
+
+						if (_itemEffects == null) _itemEffects = FindObjectOfType<ItemEffects>();
+
 						switch (fromSlot.InventoryItem.ItemBase.itemName)
 						{
 							case "Paper":
-								itemEffects.BurnPaper();
+								_itemEffects.BurnPaper();
 								break;
 							case "Alcohol":
-								itemEffects.BurnAlcohol();
+								_itemEffects.BurnAlcohol();
 								break;
 							case "Wood Plank":
-								itemEffects.BurnWood();
+								_itemEffects.BurnWood();
 								break;
 							case "Bandage":
-								itemEffects.BurnBandage();
+								_itemEffects.BurnBandage();
 								break;
 							case "Barricade":
-								itemEffects.BurnBarricade();
+								_itemEffects.BurnBarricade();
 								break;
 							default:
 								_investigateText.text=fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!";
@@ -109,26 +108,29 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 						break;
 
 					case ItemDropActions.Use:
+
+						if (_itemEffects == null) _itemEffects = FindObjectOfType<ItemEffects>();
+
 						switch (fromSlot.InventoryItem.ItemBase.itemName) //Each item has diff text so I set them separately
                         {
 							case "Bread":
-								itemEffects.EatBread();
+								_itemEffects.EatBread();
 								_investigateText.text = "ate bread";
 								break;
 							case "Raw Meat":
-								itemEffects.EatRawMeat();
+								_itemEffects.EatRawMeat();
 								_investigateText.text = "ate raw meat...it's poisoned!";
 								break;
 							case "Cooked Meat":
-								itemEffects.EatCookedMeat();
+								_itemEffects.EatCookedMeat();
 								_investigateText.text = "ate cooked meat...regenerating health!";
 								break;
 							case "Alcohol":
-								itemEffects.DrinkAlcohol();
+								_itemEffects.DrinkAlcohol();
 								_investigateText.text = "drank alcohol...stamina boosted!";
 								break;
 							case "Bandage":
-								itemEffects.UseBandage();
+								_itemEffects.UseBandage();
 								_investigateText.text = "using bandage...";
 								break;
 							//TODO Candlestick, Plate, Axe, Mirror, Glass Shard
