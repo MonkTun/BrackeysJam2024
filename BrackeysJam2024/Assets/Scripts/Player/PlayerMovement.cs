@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
             yVelocity = 0f;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && playerStaminaManager.stamina>0.5f)
         {
             isSprinting = true;
             playerStaminaManager.changeStamina(-1f*sprintStaminaDepleteRate*Time.deltaTime);
