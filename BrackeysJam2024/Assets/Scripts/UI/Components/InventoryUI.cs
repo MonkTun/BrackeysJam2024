@@ -82,6 +82,8 @@ public class InventoryUI : MonoBehaviour
 				_slotsBackpack[i].SetItem(null);
 			}
 		}
+
+		UIManager.Instance.CraftingUI.UpdateCraftability();
 	}
 
 	public void SelectHotbarSlot(int slot)
@@ -136,6 +138,8 @@ public class InventoryUI : MonoBehaviour
 		}
 
 		_playerInventory.UpdateInventory(_hotbarItemList, _backpackItemList);
+
+		UIManager.Instance.CraftingUI.UpdateCraftability();
 	}
 
 	public void RemoveItem()

@@ -17,6 +17,7 @@ public class InventoryItem
 	}
  }
 
+[RequireComponent(typeof(PlayerInventory))]
 public class PlayerInventory : MonoBehaviour
 {
 	public List<InventoryItem> HotbarItems = new List<InventoryItem>();
@@ -26,8 +27,12 @@ public class PlayerInventory : MonoBehaviour
 
 	private int _currentSlot;
 
+	private PlayerAiming _playerAiming;
+
 	private void Awake()
 	{
+		_playerAiming = GetComponent<PlayerAiming>();
+
 		SetUpInventory();
 	}
 
@@ -37,6 +42,8 @@ public class PlayerInventory : MonoBehaviour
 		{
 			UIManager.Instance.ManageGameViews(UIManager.ViewState.Inventory, true);
 		}
+
+		if (GameManager.Instance.canPlayerControl == false) return;
 
 		for (int i = (int)KeyCode.Alpha0; i <= (int)KeyCode.Alpha5; i++)
 		{
@@ -92,7 +99,9 @@ public class PlayerInventory : MonoBehaviour
 				else
 				{
 					// No empty slots available in either the hotbar or backpack
-					Debug.Log("Inventory Full");
+					Debug.Log("Inventory Full, dropping " + item.itemName);
+					Instantiate(item.pickupItem, _playerAiming.currentPos, Quaternion.identity);
+					
 				}
 			}
 		}
@@ -144,7 +153,30 @@ public class PlayerInventory : MonoBehaviour
 				}
 			}
 		}
-		//UIManager.Instance.Inventory.InventoryUpdate(HotbarItems, BackpackItems, this);
+		UIManager.Instance.Inventory.InventoryUpdate(HotbarItems, BackpackItems, this);
+	}
+
+	public bool CheckItemFromInventory(ItemBase item, int quantity)
+	{
+		int foundQuantity = 0;
+
+		for (int i = 0; i < HotbarItems.Count; i++)
+		{
+			if (HotbarItems[i]?.ItemBase.itemName == item.itemName)
+			{
+				foundQuantity += HotbarItems[i].ItemQuantity;
+			}
+		}
+
+		for (int i = 0; i < BackpackItems.Count; i++)
+		{
+			if (BackpackItems[i]?.ItemBase.itemName == item.itemName)
+			{
+				foundQuantity += BackpackItems[i].ItemQuantity;
+			}
+		}
+
+		return (foundQuantity >= quantity);
 	}
 
 	public void SetUpInventory() //TODO load from saves; right now I am just filling it with null
