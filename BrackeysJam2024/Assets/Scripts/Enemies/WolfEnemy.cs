@@ -38,6 +38,7 @@ public class WolfEnemy : EnemyBase
     {
         if (Time.time - _timeOfLastHowl > _timeBetweenHowls)
         {
+            _animator.SetTrigger("Howl");
             wolfBase.SetPackTarget(this, PlayerMovement.instance.transform.position);
             _timeOfLastHowl = Time.time;
         }

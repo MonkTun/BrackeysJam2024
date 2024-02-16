@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    [HideInInspector] public float health;
+    public float health;
     public float maxHealth;
 
     // Start is called before the first frame update

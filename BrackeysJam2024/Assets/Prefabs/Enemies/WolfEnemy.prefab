@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7263672904139568163, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386049, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52,6 +60,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 195078880, guid: 05051374c8d8d704eb335a690c99d1f8, type: 3}
+    - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -63,9 +75,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.1745283
       objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386051, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_Name
       value: WolfEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
@@ -75,6 +95,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
   m_PrefabInstance: {fileID: 929581941183035755}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &249346862333457773
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506174413280143727}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 20
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1425329146880646931
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506174413280143727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0031847954, y: -0.007961899}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.34713078, y: 0.92675024}
+  m_EdgeRadius: 0
 --- !u!114 &165598539334625971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,22 +164,22 @@ MonoBehaviour:
   _timeBetweenSearchesVariance: 2
   _searchDuration: 3
   _searchDurationVariance: 1
-  _startSeeingPlayerThreshold: 5
-  _stopSeeingPlayerThreshold: 3
+  _startSeeingPlayerThreshold: 2
+  _stopSeeingPlayerThreshold: 1
   _forgetPlayerRate: 1
   _timeBetweenAttacks: 1
-  _attackDamage: 10
+  _attackDamage: -10
   _attackKnockback: 10
-  _attackOffset: {x: 0, y: 0}
-  _attackRadius: 1
+  _attackOffset: {x: 0, y: 0.5}
+  _attackRadius: 10
   _attackLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _sightDistance: 8
   _idleSightDistance: 4
   _canBeDefensive: 1
   _minDefensiveDistance: 3
-  _startAttackRange: 1.5
+  _startAttackRange: 0.6
   _agentSpeed: 2
   _maxRoamingDistance: 30
   _maxRoamingDistanceVariance: 20

@@ -101,11 +101,25 @@ public class EnemyBase : MonoBehaviour
     }
     protected virtual void Update()
     {
-        //Update whether enemy can see player
+        _animator.SetBool("isSearching", currentState == EnemyState.idle && currentIdleState == IdleState.searching);
+        //Orient towards navmesh motion
+        if(!_isAttacking)FaceTarget();
         UpdateCanSeePlayer();
         //State Machine
         RunStateMachine();
 
+    }
+    void FaceTarget()
+    {
+        Vector3 direction = _navAgent.velocity;
+        if (direction.magnitude <= Mathf.Epsilon) { return; }
+        transform.rotation = Quaternion.Euler(0,0,90+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);
+    }
+    void FacePlayer()
+    {
+        Vector3 direction = PlayerMovement.instance.transform.position-transform.position;
+        if (direction.magnitude <= Mathf.Epsilon) { return; }
+        transform.rotation = Quaternion.Euler(0, 0, 90 + Mathf.Atan(direction.y / direction.x) * 180 / Mathf.PI);
     }
     #region Collision Functions
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -168,17 +182,22 @@ public class EnemyBase : MonoBehaviour
     #region Attack Functions
     public virtual void StartAttack() //Begins attack windup
     {
+        //Face player
+        FacePlayer();
         _animator.SetTrigger("Attack");
         _isAttacking = true;
         _navAgent.speed = 0;
     }
     public virtual void DealAttack() //Checks hitbox and deals damage and kb
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(_attackOffset + (Vector2)transform.position, _attackRadius, _attackLayerMask);
+        Debug.Log("Attacking");
+        Collider2D[] cols = Physics2D.OverlapCircleAll((Vector2)transform.TransformPoint(_attackOffset), _attackRadius, _attackLayerMask);
         foreach (Collider2D col in cols)
         {
+            Debug.Log("Hit enemy: " + col.name);
             if (col.gameObject != gameObject && col.TryGetComponent<HealthManager>(out HealthManager hm))
             {
+                Debug.Log("Damaged enemy: " + col.name);
                 hm.changeHealth(_attackDamage);
                 col.GetComponent<Rigidbody2D>().AddForce((col.gameObject.transform.position - transform.position).normalized * _attackKnockback);
             }
@@ -238,9 +257,8 @@ public class EnemyBase : MonoBehaviour
 
         if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&&Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance && CanSeePlayer())
         {
-            Debug.Log("Disabled Attack for Now");
-            /*Disabled attack for now*/
-            //StartAttack();
+            
+            StartAttack();
         }
 
     }

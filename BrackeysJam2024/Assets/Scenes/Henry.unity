@@ -1841,6 +1841,63 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &584972655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2826350957323292948, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_Name
+      value: WolfBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826350957323292950, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a36230796607cbf4ba8d13da403c9867, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6645,6 +6702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GekkoEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6978481080603207470, guid: 162a29e8285a778408fa9edc4d95a0be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 162a29e8285a778408fa9edc4d95a0be, type: 3}
 --- !u!1001 &678815656128705922
@@ -7182,6 +7243,10 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1374255030, guid: 3401bd19f17b8a44c970cc09c5c1bd39, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1463366262, guid: 3401bd19f17b8a44c970cc09c5c1bd39, type: 3}
       propertyPath: torch
       value: 
@@ -7289,6 +7354,10 @@ PrefabInstance:
     - target: {fileID: 4588369753581178058, guid: 3401bd19f17b8a44c970cc09c5c1bd39, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4936834763100115169, guid: 3401bd19f17b8a44c970cc09c5c1bd39, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3401bd19f17b8a44c970cc09c5c1bd39, type: 3}
