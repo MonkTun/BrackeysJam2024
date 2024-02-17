@@ -22,7 +22,7 @@ public class PlayerWeapons : MonoBehaviour
 	{
 		UpdateWeapon();
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && GameManager.Instance.canPlayerControl)
 		{
 			TryAttack();
 		}

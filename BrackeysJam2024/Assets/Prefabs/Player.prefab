@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   maxHunger: 100
-  baseHungerDepletionRate: 0.5
+  baseHungerDepletionRate: 0.55
   sprintHungerDepletionRate: 2
 --- !u!114 &1463366262
 MonoBehaviour:
@@ -1167,7 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ebeb87d8fc6c3448f5d6e7e087b6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 0}
   paperFuelValue: 0.4
   breadValue: 30
   rawMeatValue: 60
