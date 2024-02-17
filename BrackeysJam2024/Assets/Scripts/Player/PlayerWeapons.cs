@@ -40,7 +40,7 @@ public class PlayerWeapons : MonoBehaviour
 
 	private void TryAttack()
 	{
-		if (_staminaManager.stamina <= 7 || _hungerManager.hunger <= 0) return;
+		if (_staminaManager.stamina <= 10 || _hungerManager.hunger <= 0) return;
 
 		if (axe.gameObject.activeInHierarchy)
 		{

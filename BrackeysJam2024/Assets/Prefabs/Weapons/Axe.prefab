@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackDamage: 10
   _attackCooltime: 0.5
-  _staminaCost: 7
+  _staminaCost: 10
   _hungerCost: 5
   _animator: {fileID: 1859543000987903898}
   _attackCollider: {fileID: 1859543000987903896}
