@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private StaminaManager playerStaminaManager;
 
     private Rigidbody2D rb;
+
+    [SerializeField] private Animator _animator;
+
     private void Awake()
     {
         instance = this;
@@ -43,7 +46,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameManager.Instance.canPlayerControl == false)
         {
-            rb.velocity = Vector2.zero; return; 
+            rb.velocity = Vector2.zero;
+            _animator.SetBool("Walk", false);
+
+			return; 
         }
 
         //Horizontal input
@@ -118,7 +124,10 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(rb.velocity);
         rb.velocity = new Vector2(xVelocity, yVelocity) * (isSprinting ? sprintRate:1f) * (isCobweb?cobwebSlowRate:1f);
-    }
+
+        _animator.SetBool("Walk", rb.velocity != Vector2.zero);
+
+	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
