@@ -101,6 +101,7 @@ public class EnemyBase : MonoBehaviour
     }
     protected virtual void Update()
     {
+        if (Random.Range(0f,1f)<0.1f&&_navAgent.isPathStale||_navAgent.pathStatus!=NavMeshPathStatus.PathComplete) { FindExplorationTarget(); }
         _animator.SetBool("isSearching", currentState == EnemyState.idle && currentIdleState == IdleState.searching);
         //Orient towards navmesh motion
         if(!_isAttacking)FaceTarget();
@@ -113,22 +114,24 @@ public class EnemyBase : MonoBehaviour
     {
         Vector3 direction = _navAgent.velocity;
         if (direction.magnitude <= Mathf.Epsilon) { return; }
-        transform.rotation = Quaternion.Euler(0,0,90+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);
+        transform.rotation = Quaternion.Euler(0,0,90+((direction.x<0)?0:180)+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);
     }
     void FacePlayer()
     {
-        Vector3 direction = PlayerMovement.instance.transform.position-transform.position;
+        Vector3 direction =  PlayerMovement.instance.transform.position-transform.position;
         if (direction.magnitude <= Mathf.Epsilon) { return; }
-        transform.rotation = Quaternion.Euler(0, 0, 90 + Mathf.Atan(direction.y / direction.x) * 180 / Mathf.PI);
+        transform.rotation = Quaternion.Euler(0, 0, 90 + ((direction.x < 0) ? 0 : 180) + Mathf.Atan2(direction.x,direction.y) * 180 / Mathf.PI);
     }
     #region Collision Functions
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!_isAttacking && Time.time - _timeOfLastAttack > _timeBetweenAttacks)
+            if (collision.gameObject.TryGetComponent<HealthManager>(out HealthManager hm))
             {
-                StartAttack();
+                Debug.Log("Damaged enemy: " + collision.gameObject.name);
+                hm.changeHealth(_attackDamage);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
             }
         }
     }
@@ -255,7 +258,7 @@ public class EnemyBase : MonoBehaviour
         _navAgent.SetDestination((Vector2)PlayerMovement.instance.transform.position);
         Vector2 playerPos = PlayerMovement.instance.transform.position;
 
-        if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&&Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance && CanSeePlayer())
+        if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&&Vector2.Distance(transform.position, playerPos) < _attackRadius && CanSeePlayer())
         {
             
             StartAttack();
@@ -338,8 +341,10 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual bool CanSeeTarget(Vector2 target)
     {
+        float dist = Vector2.Distance(target,transform.position);
+        if(dist< ((currentState != EnemyState.idle || currentIdleState != IdleState.searching) ? _sightDistance : _idleSightDistance)) { return false; }
         RaycastHit2D rh = Physics2D.Raycast(transform.position, (target - (Vector2)transform.position).normalized, 
-            ((currentState != EnemyState.idle || currentIdleState != IdleState.searching) ? _sightDistance : _idleSightDistance), 
+            dist, 
             GlobalVariableHelper.instance.solidLayerMask);
         return rh.collider == null || rh.collider.gameObject == null; //Only considers walls/obstacles
     }
@@ -377,11 +382,12 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual bool FindExplorationTarget()
     {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             if(NavMesh.SamplePosition(Random.insideUnitCircle * (_maxRoamingDistance + _maxRoamingDistanceVariance), out NavMeshHit hit, 2, NavMesh.AllAreas))
             {
                 currentExplorationTarget = hit.position;
                 _navAgent.SetDestination(currentExplorationTarget);
+                
                 return true;
             }
         }

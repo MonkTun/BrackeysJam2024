@@ -16,7 +16,9 @@ public class EnemyActivationHelper : MonoBehaviour
     {
         if (CalculateDistSqr(_enemy.transform.position, PlayerMovement.instance.transform.position) < _activationDistance * _activationDistance)
         {
-            _enemy.SetActive(true);    
+            _enemy.SetActive(true);
+            transform.DetachChildren();
+            Destroy(gameObject);
         }
     }
 

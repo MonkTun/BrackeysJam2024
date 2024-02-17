@@ -289,7 +289,7 @@ MonoBehaviour:
   _attackRadius: 1
   _attackLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _sightDistance: 8
   _idleSightDistance: 4
   _canBeDefensive: 1
