@@ -23,6 +23,7 @@ public class EnemySoundHelper : MonoBehaviour
     {
         if (CalculateDistSqr(lastPos, transform.position) > _currentDistanceBetweenFootsteps * _currentDistanceBetweenFootsteps)
         {
+            _currentDistanceBetweenFootsteps = Random.Range(_minDistanceBetweenFootsteps, _maxDistanceBetweenFootsteps);
             _mmfPlayer.PlayFeedbacks();
             lastPos = transform.position;
         }

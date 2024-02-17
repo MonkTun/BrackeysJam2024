@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using MoreMountains.Tools;
+using MoreMountains.Feedbacks;
 public enum EnemyState
 {
     idle,
@@ -21,6 +23,12 @@ public class EnemyBase : MonoBehaviour
     [Header("Reference Fields")]
     [SerializeField] protected NavMeshAgent _navAgent;
     [SerializeField] protected Animator _animator;
+    #region Audio Clips
+    [Header("Audio Clips")]
+    [SerializeField] protected AudioClip _aggroAudioClip;
+    [SerializeField] protected AudioClip _defenseAudioClip;
+    [SerializeField] protected AudioClip _deathAudioClip;
+    #endregion
     #endregion
     #region Runtime Values
     [Header("Runtime Values")]
@@ -110,6 +118,10 @@ public class EnemyBase : MonoBehaviour
         //State Machine
         RunStateMachine();
 
+    }
+    private void OnDestroy()
+    {
+        if (_deathAudioClip != null) { PlaySFXClip(_deathAudioClip); }
     }
     void FaceTarget()
     {
@@ -249,8 +261,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (_canSeePlayer)
         {
-            if (_canBeDefensive) currentState = EnemyState.defensive;
-            else currentState = EnemyState.aggressive;
+            if (_canBeDefensive) { currentState = EnemyState.defensive; if (_defenseAudioClip != null) { PlaySFXClip(_defenseAudioClip); } }
+            else { currentState = EnemyState.aggressive; if (_aggroAudioClip != null) { PlaySFXClip(_aggroAudioClip); } }
         }
     }
     public virtual void DefensiveBehaviour()
@@ -262,7 +274,7 @@ public class EnemyBase : MonoBehaviour
     {
         Vector2 playerPos = PlayerMovement.instance.transform.position;
         if (!_canSeePlayer) { FindExplorationTarget(); _navAgent.speed = _agentSpeed; currentState = EnemyState.idle; }
-        else if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance) { _navAgent.speed = _agentSpeed; currentState = EnemyState.aggressive; }
+        else if (Vector2.Distance(transform.position, playerPos) < _minDefensiveDistance) { _navAgent.speed = _agentSpeed; currentState = EnemyState.aggressive; if (_aggroAudioClip != null) { PlaySFXClip(_aggroAudioClip); } }
     }
     public virtual void AggressiveBehaviour()
     {
@@ -409,6 +421,11 @@ public class EnemyBase : MonoBehaviour
     public static float CalculateDistSqr(Vector2 a, Vector2 b)
     {
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    }
+
+    public void PlaySFXClip(AudioClip clip)
+    {
+        MMSoundManagerSoundPlayEvent.Trigger(clip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
     }
     #endregion
 }
