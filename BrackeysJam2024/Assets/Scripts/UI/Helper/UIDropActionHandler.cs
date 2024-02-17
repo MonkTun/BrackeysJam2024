@@ -153,9 +153,14 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 						break;
 
 					case ItemDropActions.Look:
-
-						
-						_investigateText.text = fromSlot.InventoryItem.ItemBase.itemName; //TODO this is more of placeholder open dialogue or something
+						if (fromSlot.InventoryItem.ItemBase.hint != "")
+                        {
+							_investigateText.text = fromSlot.InventoryItem.ItemBase.hint;
+						}
+                        else
+                        {
+							_investigateText.text = fromSlot.InventoryItem.ItemBase.itemName;
+						}
 
 						break;
 				}

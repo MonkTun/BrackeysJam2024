@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe194b23408d61469406a106a4959ce, type: 3}
+  m_Name: StartingHint ItemData
+  m_EditorClassIdentifier: 
+  pickupItem: {fileID: 3074135954567170174, guid: 29aac41f66bee47479a2921ad66e7998, type: 3}
+  itemName: Butler's Journal #1
+  itemIcon: {fileID: 21300000, guid: 4e77f7d6123f8484fb5e2b09ca53f5fe, type: 3}
+  itemQuantity: 1
+  isEdible: 0
+  _foodValue: 0
+  isFlammable: 1
+  _fuelValue: 5
+  damageMulti: 0
+  isDropped: 0
+  hint: If you are reading this, you are one of the few survivors. Come at once down
+    the hall. BEWARE OF OTHER GUESTS, THEY ARE NO LONGER THEMSELVES.

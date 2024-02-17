@@ -16,6 +16,5 @@ public class ItemBase : ScriptableObject
     [SerializeField] private int _fuelValue;
     public int damageMulti;//Amount of damage the object deals
     [SerializeField] private bool isDropped;//An item is dropped when its in the game world, not in the player's inventory or other UI
-
-
+    public string hint;
 }
