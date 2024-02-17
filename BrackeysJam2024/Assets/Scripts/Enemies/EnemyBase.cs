@@ -83,6 +83,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float _playerFoodValue;
     [Tooltip("Minimum distance before enemy switches from idle back to exploring")]
     [SerializeField] protected float _minRetreatingBaseDistance;
+    [SerializeField] protected bool _hasInstantContactDamage = true;
     #endregion
     #region Unity Functions
     protected virtual void Awake()
@@ -127,11 +128,20 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (collision.gameObject.TryGetComponent<HealthManager>(out HealthManager hm))
+            if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&& collision.gameObject.TryGetComponent<HealthManager>(out HealthManager hm) )
             {
-                Debug.Log("Damaged enemy: " + collision.gameObject.name);
-                hm.changeHealth(_attackDamage);
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
+                if (_hasInstantContactDamage)
+                {
+                    _timeOfLastAttack = Time.time;
+                    Debug.Log("Damaged enemy: " + collision.gameObject.name);
+                    hm.changeHealth(_attackDamage);
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
+
+                }
+                else
+                {
+                    StartAttack();
+                }
             }
         }
     }
@@ -200,6 +210,7 @@ public class EnemyBase : MonoBehaviour
             Debug.Log("Hit enemy: " + col.name);
             if (col.gameObject != gameObject && col.TryGetComponent<HealthManager>(out HealthManager hm))
             {
+
                 Debug.Log("Damaged enemy: " + col.name);
                 hm.changeHealth(_attackDamage);
                 col.GetComponent<Rigidbody2D>().AddForce((col.gameObject.transform.position - transform.position).normalized * _attackKnockback);

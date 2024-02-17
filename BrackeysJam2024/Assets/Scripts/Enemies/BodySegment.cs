@@ -10,12 +10,30 @@ public class BodySegment : MonoBehaviour
     [SerializeField] private float _movementSpeed = 1;
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackKnockback;
-    private void Update()
+    [SerializeField] private Animator animator;
+    private Vector2 lastFramePos;
+    private void Awake()
     {
+        animator = GetComponent<Animator>();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        var dir = (Vector2)followTarget.position - lastFramePos;
+
+        var vel = (Vector2)transform.position - lastFramePos;
+        var angle = 90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Debug.Log("Angle: " + angle);
+        animator.speed = vel.magnitude / Time.deltaTime / 1700;
+        Debug.Log("Speed: " + Mathf.RoundToInt(vel.magnitude / Time.deltaTime / 1700));
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         if (CalculateDistSqr(transform.position, followTarget.position) > _jointLength * _jointLength)
         {
             transform.position = Vector3.MoveTowards(transform.position, followTarget.position, _movementSpeed * Time.deltaTime);
         }
+        lastFramePos = transform.position;
+
     }
     public static float CalculateDistSqr(Vector2 a, Vector2 b)
     {

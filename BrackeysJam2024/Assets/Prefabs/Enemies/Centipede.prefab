@@ -470,6 +470,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5940708528214368312}
     m_Modifications:
+    - target: {fileID: 5778980092906196936, guid: 60de285373236f240a11fde26650ad4f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1507760416, guid: 73c37351fd9e7cb42b84f53fe7ae562a, type: 3}
     - target: {fileID: 5778980092906196937, guid: 60de285373236f240a11fde26650ad4f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -518,7 +522,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CentipedeHead
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5778980092906196980, guid: 60de285373236f240a11fde26650ad4f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60de285373236f240a11fde26650ad4f, type: 3}
 --- !u!4 &7730828052769221822 stripped
 Transform:
