@@ -29,6 +29,8 @@ public class PlayerInventory : MonoBehaviour
 
 	private PlayerAiming _playerAiming;
 
+	public ItemBase key; //For Doors requiring keys to access
+
 	private void Awake()
 	{
 		_playerAiming = GetComponent<PlayerAiming>();
