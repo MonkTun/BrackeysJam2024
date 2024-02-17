@@ -342,7 +342,7 @@ public class EnemyBase : MonoBehaviour
     public virtual bool CanSeeTarget(Vector2 target)
     {
         float dist = Vector2.Distance(target,transform.position);
-        if(dist< ((currentState != EnemyState.idle || currentIdleState != IdleState.searching) ? _sightDistance : _idleSightDistance)) { return false; }
+        if(dist> ((currentState != EnemyState.idle || currentIdleState != IdleState.searching) ? _sightDistance : _idleSightDistance)) { return false; }
         RaycastHit2D rh = Physics2D.Raycast(transform.position, (target - (Vector2)transform.position).normalized, 
             dist, 
             GlobalVariableHelper.instance.solidLayerMask);

@@ -12,12 +12,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _attackDamage
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _searchDuration
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _attackKnockback
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _playerFoodValue

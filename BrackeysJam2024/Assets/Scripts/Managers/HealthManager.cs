@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 public class HealthManager : MonoBehaviour
 {
+    [SerializeField] private AudioClip hurtAudioClip;
     public float health;
     public float maxHealth;
 
@@ -21,6 +24,7 @@ public class HealthManager : MonoBehaviour
 
     public void changeHealth(float value) //Increase/Decrease health by the value
     {
+        if (value < 0&&hurtAudioClip!=null) { MMSoundManagerSoundPlayEvent.Trigger(hurtAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position); }
         health += value;
         if (health > maxHealth)
         {
