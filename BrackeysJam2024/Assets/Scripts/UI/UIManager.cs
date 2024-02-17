@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
 	public InteractionUI InteractionUI => _interactionUI;
 	public CraftingUI CraftingUI => _craftingUI;
 
+	public ViewState State => _state;
+
 	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel; 
 
 	private InventoryUI _inventory;
@@ -140,5 +142,15 @@ public class UIManager : MonoBehaviour
 
 				break;
 		}
+	}
+
+	public void BackToGame()
+	{
+		ManageGameViews(ViewState.GamePlay);
+	}
+
+	public void QuitGame()
+	{
+		GlobalSceneManager.Instance.OpenGameAsync("MainMenu");
 	}
 }

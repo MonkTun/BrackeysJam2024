@@ -2303,18 +2303,18 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1083594412}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1083594414}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1083594415}
+        m_TargetAssemblyTypeName: StartGameButtonHelper, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2559,6 +2559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2a56eed3c16c4e9b3e759a8485a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainScene: Level Test
 --- !u!1001 &1103554930
 PrefabInstance:
   m_ObjectHideFlags: 0

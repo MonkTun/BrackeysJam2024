@@ -34,7 +34,7 @@ public class GlobalSceneManager : MonoBehaviour
 
 	public void OpenGameAsync(string sceneName) 
 	{
-		if (_loadCoroutine == null) return;
+		if (_loadCoroutine != null) return;
 
 		_loadCoroutine = StartCoroutine(LoadAsyncScene(sceneName));
 	}
