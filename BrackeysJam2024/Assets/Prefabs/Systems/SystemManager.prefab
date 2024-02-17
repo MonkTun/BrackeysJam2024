@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1666821878015647533}
   - component: {fileID: 1666821878015647534}
   - component: {fileID: 9003446283209371004}
+  - component: {fileID: 4051056332901449924}
   m_Layer: 0
   m_Name: SystemManager
   m_TagString: Untagged
@@ -151,6 +152,25 @@ MonoBehaviour:
   solidLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  lootLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &4051056332901449924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666821878015647535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614edb33c38bcf949846d5675f29f9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutomaticallyUnparentOnAwake: 1
+  settingsSo: {fileID: 11400000, guid: 07ea3ff88e1ecb84d91f58aa804badc6, type: 2}
+  AudioSourcePoolSize: 10
+  PoolCanExpand: 1
 --- !u!1 &1666821878347491339
 GameObject:
   m_ObjectHideFlags: 0
