@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintStaminaDepleteRate;
     [HideInInspector] public bool isSprinting;
 
+    private bool isCobweb;
+    [SerializeField] private float cobwebSlowRate;
+
     private StaminaManager playerStaminaManager;
 
     private Rigidbody2D rb;
@@ -31,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
         xVelocity = 0f;
         yVelocity = 0f;
+
+        isCobweb = false;
     }
 
     // Update is called once per frame
@@ -112,6 +117,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Debug.Log(rb.velocity);
-        rb.velocity = new Vector2(xVelocity, yVelocity) * (isSprinting ? sprintRate:1f);
+        rb.velocity = new Vector2(xVelocity, yVelocity) * (isSprinting ? sprintRate:1f) * (isCobweb?cobwebSlowRate:1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Cobweb"))
+        {
+            isCobweb = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Cobweb"))
+        {
+            isCobweb = false;
+        }
     }
 }
