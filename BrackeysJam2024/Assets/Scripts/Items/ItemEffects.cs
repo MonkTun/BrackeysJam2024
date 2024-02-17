@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemEffects : MonoBehaviour
-{
+{   
     private HealthManager healthManager;
     private StaminaManager staminaManager;
     private HungerManager hungerManager;
     private BrightnessManager brightnessManager;
+
+    public UIManager uiManager;
 
     [Header("Paper")]
     [SerializeField] private float paperFuelValue;
@@ -144,6 +146,7 @@ public class ItemEffects : MonoBehaviour
     private IEnumerator UseBandageCoroutine() //Needs UI Indication & restrict movement
     {
         GameManager.Instance.canPlayerControl = false;
+        uiManager.UseBandage(bandageUseDuration);
         yield return new WaitForSeconds(bandageUseDuration);
         healthManager.changeHealth(bandageHealValue);
         GameManager.Instance.canPlayerControl = true;

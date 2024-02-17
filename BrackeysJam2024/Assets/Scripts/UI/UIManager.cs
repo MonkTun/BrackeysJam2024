@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(InventoryUI)), RequireComponent(typeof(PlayerUI)), RequireComponent(typeof(InteractionUI))]
 public class UIManager : MonoBehaviour
@@ -21,6 +22,8 @@ public class UIManager : MonoBehaviour
 	public PlayerUI PlayerUI => _playerUI;
 	public InteractionUI InteractionUI => _interactionUI;
 	public CraftingUI CraftingUI => _craftingUI;
+
+	public Slider bandageSlider;
 
 
 	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel; 
@@ -140,6 +143,27 @@ public class UIManager : MonoBehaviour
 
 				break;
 		}
+	}
+
+	public void UseBandage(float bandageUseDuration)
+    {
+		StartCoroutine(UBCoroutine(bandageUseDuration));
+	}
+
+	private IEnumerator UBCoroutine(float bandageUseDuration)
+    {
+		//Debug.Log("used bandage");
+		bandageSlider.gameObject.SetActive(true);
+		bandageSlider.value = 0f;
+		float timer = 0f;
+		while (timer <= bandageUseDuration)
+		{
+			timer += Time.deltaTime;
+			bandageSlider.value += (Time.deltaTime / bandageUseDuration);
+			yield return new WaitForSeconds(Time.deltaTime);
+		}
+		//Debug.Log("timer: " + timer);
+		bandageSlider.gameObject.SetActive(false);
 	}
 
 	//TODO later if you guys want we should split these //UPDATE: I am splitting these
