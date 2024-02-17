@@ -981,11 +981,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initVelocity: 1.5
-  maxVelocity: 3
+  maxVelocity: 2.25
   acceleration: 10
   sprintRate: 1.8
-  sprintStaminaDepleteRate: 15
+  sprintStaminaDepleteRate: 25
   isSprinting: 0
+  cobwebSlowRate: 0.3
 --- !u!50 &4588369753581178053
 Rigidbody2D:
   serializedVersion: 4
@@ -1066,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb5c13a80de88408a888be74dbc7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: {fileID: 11400000, guid: 4d375a3a77185c9418e7559632372d27, type: 2}
 --- !u!114 &1463366272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,8 +1129,8 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.025
-  flicker: 0.05
+  brightnessDepletionRate: 0.03
+  flicker: 0.035
   flickerFrequency: 2
   startFlickeringBrigtness: 0.35
   torchSpriteMaskScaler: {fileID: 4936834763100115169}
