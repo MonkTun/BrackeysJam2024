@@ -14,6 +14,7 @@ public class HealthManager : MonoBehaviour
     
     public float health;
     public float maxHealth;
+    [SerializeField] private float showPPHealth;
     //Player only, didnt feel like making a subscript
     public bool isPoisoned;
     private float _timeOfLastPoisonTick=0;
@@ -36,6 +37,10 @@ public class HealthManager : MonoBehaviour
     {
         if (isPlayer)
         {
+            if (health <= showPPHealth)
+            {
+                PostprocessingManager.Instance.NearDeathPPOn();
+            }
             UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
             if (isPoisoned&&Time.time-_timeOfLastPoisonTick>_delayBetweenPoisonTick) { ChangeHealth(-_poisonTickDamage);_timeOfLastPoisonTick = Time.time; }
         }
@@ -65,6 +70,9 @@ public class HealthManager : MonoBehaviour
 
         if (isPlayer)
         {
+            PostprocessingManager.Instance.NearDeathPPOff();
+            PostprocessingManager.Instance.PausedPPOff();
+            PostprocessingManager.Instance.GameplayPPOff();
             UIManager.Instance.ManageGameViews(UIManager.ViewState.Death);
             UIManager.Instance.Death();
         }

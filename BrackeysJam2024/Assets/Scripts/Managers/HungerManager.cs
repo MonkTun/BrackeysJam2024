@@ -8,8 +8,10 @@ public class HungerManager : MonoBehaviour
     public float maxHunger;
     [SerializeField] private float baseHungerDepletionRate;
     [SerializeField] private float sprintHungerDepletionRate;
+    [SerializeField] private float showPPHunger;
 
     private PlayerMovement playerMovement;
+    private bool isDead;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class HungerManager : MonoBehaviour
         hunger = maxHunger;
 
         playerMovement = GetComponent<PlayerMovement>();
+
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -24,7 +28,19 @@ public class HungerManager : MonoBehaviour
     {
         changeHunger(-1f * (playerMovement.isSprinting? sprintHungerDepletionRate : baseHungerDepletionRate) * Time.deltaTime);
         UIManager.Instance.PlayerUI.UpdateHungerBar(hunger, maxHunger);
-
+        if (hunger <= showPPHunger)
+        {
+            PostprocessingManager.Instance.NearDeathPPOn();
+        }
+        if (hunger <= 0f && !isDead)
+        {
+            PostprocessingManager.Instance.NearDeathPPOff();
+            PostprocessingManager.Instance.PausedPPOff();
+            PostprocessingManager.Instance.GameplayPPOff();
+            UIManager.Instance.ManageGameViews(UIManager.ViewState.Death);
+            UIManager.Instance.Death();
+            isDead = true;
+        }
 	}
 
     public void changeHunger(float value) //Increase/Decrease hunger by the value
