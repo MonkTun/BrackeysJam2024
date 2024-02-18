@@ -36,6 +36,10 @@ public class PlayerWeapons : MonoBehaviour
 		{
 			axe.gameObject.SetActive(_playerInventory.CurrentlySelectedItem.ItemBase.itemName == "Axe");
 			barricade.gameObject.SetActive(_playerInventory.CurrentlySelectedItem.ItemBase.itemName == "Barricade");
+		} else
+		{
+			axe.gameObject.SetActive(false);
+			barricade.gameObject.SetActive(false);
 		}
 	}
 
