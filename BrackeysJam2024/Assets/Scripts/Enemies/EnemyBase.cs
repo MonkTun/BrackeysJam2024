@@ -412,7 +412,7 @@ public class EnemyBase : MonoBehaviour
                 return true;
             }
         }
-        Debug.LogError("UNABLE TO FIND EXPLORATION TARGET POINT");
+        Debug.Log("UNABLE TO FIND EXPLORATION TARGET POINT");
         return false;
     }
     public virtual void PlayerTooClose()

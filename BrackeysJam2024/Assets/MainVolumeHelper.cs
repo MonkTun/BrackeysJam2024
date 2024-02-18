@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainVolumeHelper : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    private void Awake()
+    private void Start()
     {
         if (slider == null) { slider = GetComponent<Slider>(); }
         slider.value = MMSoundManager.Current.GetTrackVolume(targetTrack,false);
