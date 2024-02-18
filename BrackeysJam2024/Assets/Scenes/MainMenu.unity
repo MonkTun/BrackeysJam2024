@@ -3254,9 +3254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'PEEKABOO
-
-'
+  m_text: HEADLESS HOTEL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be816cca72328af4a8240644bc3cc805, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6dc4cc51da13d59479ebc9b363a235a9, type: 2}
