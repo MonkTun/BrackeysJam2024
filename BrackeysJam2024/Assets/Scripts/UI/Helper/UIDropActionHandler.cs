@@ -91,10 +91,10 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 								_itemEffects.BurnBarricade();
 								break;
 							default:
-								UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!");
+								UIManager.Instance.DialogueUI.AddDialogue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!");
 								return;
 						}
-						UIManager.Instance.DialogueUI.AddDialoue("burned " + fromSlot.InventoryItem.ItemBase.itemName);
+						UIManager.Instance.DialogueUI.AddDialogue("burned " + fromSlot.InventoryItem.ItemBase.itemName);
 
 						fromSlot.InventoryItem.ItemQuantity--;
 
@@ -117,27 +117,27 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
                         {
 							case "Bread":
 								_itemEffects.EatBread();
-								UIManager.Instance.DialogueUI.AddDialoue("ate bread");
+								UIManager.Instance.DialogueUI.AddDialogue("ate bread");
 								break;
 							case "Raw Meat":
 								_itemEffects.EatRawMeat();
-								UIManager.Instance.DialogueUI.AddDialoue("ate raw meat...it's poisoned!");
+								UIManager.Instance.DialogueUI.AddDialogue("ate raw meat...it's poisoned!");
 								break;
 							case "Cooked Meat":
 								_itemEffects.EatCookedMeat();
-								UIManager.Instance.DialogueUI.AddDialoue("ate cooked meat...regenerating health!");
+								UIManager.Instance.DialogueUI.AddDialogue("ate cooked meat...regenerating health!");
 								break;
 							case "Alcohol":
 								_itemEffects.DrinkAlcohol();
-								UIManager.Instance.DialogueUI.AddDialoue("drank alcohol...stamina boosted!");
+								UIManager.Instance.DialogueUI.AddDialogue("drank alcohol...stamina boosted!");
 								break;
 							case "Bandage":
 								_itemEffects.UseBandage();
-								UIManager.Instance.DialogueUI.AddDialoue("using bandage...");
+								UIManager.Instance.DialogueUI.AddDialogue("using bandage...");
 								break;
 							//TODO Candlestick, Plate, Axe, Mirror, Glass Shard
 							default:
-								UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be used!");
+								UIManager.Instance.DialogueUI.AddDialogue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be used!");
 								return;
 						}
 
@@ -157,11 +157,11 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 					case ItemDropActions.Look:
 						if (fromSlot.InventoryItem.ItemBase.hint != "")
                         {
-							UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.hint);
+							UIManager.Instance.DialogueUI.AddDialogue(fromSlot.InventoryItem.ItemBase.hint);
 						}
                         else
                         {
-							UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName);
+							UIManager.Instance.DialogueUI.AddDialogue(fromSlot.InventoryItem.ItemBase.itemName);
 						}
 
 						break;
