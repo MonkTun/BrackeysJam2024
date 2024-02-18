@@ -25,6 +25,10 @@ public class UIManager : MonoBehaviour
 
 	public ViewState State => _state;
 
+	public Animator deathBGAnim;
+	public Animator deathTextAnim;
+	public GameObject deathButtons;
+
 	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel; 
 
 	private InventoryUI _inventory;
@@ -136,12 +140,24 @@ public class UIManager : MonoBehaviour
 				inventoryPanel.SetActive(false);
 				pausedPanel.SetActive(false);
 				settingsPanel.SetActive(false);
-				deathPanel.SetActive(true);
 				craftingPanel.SetActive(false);
 				GameManager.Instance.canPlayerControl = false;
 
 				break;
 		}
+	}
+	public void Death()
+    {
+		StartCoroutine(ShowDeathUI());
+    }
+	private IEnumerator ShowDeathUI()
+    {
+		deathPanel.SetActive(true);
+		deathButtons.SetActive(false);
+		deathBGAnim.SetTrigger("isDeath");
+		deathTextAnim.SetTrigger("isDeath");
+		yield return new WaitForSeconds(2);
+		deathButtons.SetActive(true);
 	}
 
 	public void BackToGame()

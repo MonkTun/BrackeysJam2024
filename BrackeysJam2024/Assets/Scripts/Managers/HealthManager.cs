@@ -63,6 +63,12 @@ public class HealthManager : MonoBehaviour
     {
         if (isPlayer == false) Destroy(gameObject);
 
+        if (isPlayer)
+        {
+            UIManager.Instance.ManageGameViews(UIManager.ViewState.Death);
+            UIManager.Instance.Death();
+        }
+
         if (onDeathPS != null) Destroy(Instantiate(onDeathPS, transform.position, Quaternion.identity), 1);
 
     }

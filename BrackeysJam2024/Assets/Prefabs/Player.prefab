@@ -1484,6 +1484,7 @@ MonoBehaviour:
   isPlayer: 1
   health: 0
   maxHealth: 100
+  isPoisoned: 0
 --- !u!114 &1463366279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1515,7 +1516,7 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.03
+  brightnessDepletionRate: 0.022
   flicker: 0.035
   flickerFrequency: 2
   startFlickeringBrigtness: 0.35
