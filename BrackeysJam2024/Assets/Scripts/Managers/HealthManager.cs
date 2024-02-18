@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private AudioClip hurtAudioClip;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private ParticleSystem onDamagePS;
+    [SerializeField] private ParticleSystem onDeathPS;
     [SerializeField] private bool isPlayer;
     public float health;
     public float maxHealth;
@@ -50,6 +52,9 @@ public class HealthManager : MonoBehaviour
     public void Death()
     {
         if (isPlayer == false) Destroy(gameObject);
+
+        if (onDeathPS != null) Destroy(Instantiate(onDeathPS, transform.position, Quaternion.identity), 1);
+
     }
 
     private IEnumerator DamageTakeVisual()
@@ -57,7 +62,8 @@ public class HealthManager : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.black;
-            yield return new WaitForSeconds(0.1f);
+			if (onDamagePS != null) onDamagePS.Play();
+			yield return new WaitForSeconds(0.1f);
 			spriteRenderer.color = Color.white;
 		}
     }
