@@ -1482,9 +1482,9 @@ MonoBehaviour:
   onDamagePS: {fileID: 2219355412517861006}
   onDeathPS: {fileID: 0}
   isPlayer: 1
-  health: 0
+  health: 100
   maxHealth: 100
-  showPPHealth: 0
+  showPPHealth: 35
   isPoisoned: 0
 --- !u!114 &1463366279
 MonoBehaviour:
@@ -1502,7 +1502,7 @@ MonoBehaviour:
   maxHunger: 100
   baseHungerDepletionRate: 0.4
   sprintHungerDepletionRate: 1.75
-  showPPHunger: 0
+  showPPHunger: 30
 --- !u!114 &1463366262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.0125
+  brightnessDepletionRate: 0.007
   flicker: 0.035
   flickerFrequency: 2
   startFlickeringBrigtness: 0.35
