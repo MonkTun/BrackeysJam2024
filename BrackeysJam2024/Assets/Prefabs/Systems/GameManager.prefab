@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c504edd289aff40b22e064f10e1241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingItemAmount: 50
+  startingItemAmount: 70
   minSpawnInterval: 10
   maxSpawnInterval: 30
   minSpawnAmount: 1
-  maxSpawnAmount: 3
+  maxSpawnAmount: 4
   minItemSeparation: 6
   possibleItemList:
   - prefab: {fileID: 7799608088300343828, guid: adf83154fd306db49b1ba1124cea155b, type: 3}

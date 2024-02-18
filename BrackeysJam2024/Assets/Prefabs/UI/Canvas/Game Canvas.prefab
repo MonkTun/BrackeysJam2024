@@ -5177,6 +5177,11 @@ MonoBehaviour:
       Quantity: 1
     ResultingItem: {fileID: 11400000, guid: 19b0885250d7dee4080697261b5b073d, type: 2}
     CraftingDuration: 1
+  - MaterialsNeeded:
+    - Item: {fileID: 11400000, guid: 11e4041e8c8d9be4ba1e91afeab22eec, type: 2}
+      Quantity: 1
+    ResultingItem: {fileID: 11400000, guid: a88c67205f6d4f04cab72caff86e41e9, type: 2}
+    CraftingDuration: 1
   _craftingTableContent: {fileID: 1903117945}
   _craftingOptionPrefab: {fileID: 2148549080854940022, guid: 8347bb5e86033fa4abbd0ec0e7b8da39, type: 3}
   _informationWindow: {fileID: 0}
