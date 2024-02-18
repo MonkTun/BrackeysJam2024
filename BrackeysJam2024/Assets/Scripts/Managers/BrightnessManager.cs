@@ -32,7 +32,7 @@ public class BrightnessManager : MonoBehaviour
     private float lightMuzzleBaseIntensity;
     private float lightSpreadBaseIntensity;
 
-    private float upgradeMultiplierY;
+    private float upgradeMultiplierY = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +42,9 @@ public class BrightnessManager : MonoBehaviour
         isLampOn = true;
 
         flickerFrequencyCnt = 0;
+		upgradeMultiplierY = 1;
 
-        torchBaseIntensity = torch.intensity;
+		torchBaseIntensity = torch.intensity;
         lightNearPlayerBaseIntensity = lightNearPlayer.intensity;
         mainLightRayBaseIntensity = mainLightRay.intensity;
         lightMuzzleBaseIntensity = lightMuzzle.intensity;
