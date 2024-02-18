@@ -22,6 +22,7 @@ public class NavmeshPathVisualizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        return;
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             toggle = !toggle;
