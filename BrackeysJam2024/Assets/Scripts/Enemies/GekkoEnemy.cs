@@ -19,10 +19,13 @@ public class GekkoEnemy : EnemyBase
     private bool _isBeingLookedAt;
     private bool _wasFound;
     [SerializeField] private float _invisibleTransformationThreshold;
+    private float _actualContactDistance;
     protected override void Awake()
     {
         if (rend == null) { rend = GetComponent<SpriteRenderer>(); }
         base.Awake();
+
+
     }
     public override void IdleTransitions()
     {
@@ -72,7 +75,14 @@ public class GekkoEnemy : EnemyBase
     protected override void Update()
     {
         rend.color = new Color(1, 1, 1, _transformingPercentageToAlpha.Evaluate(_transformationPercentage));
+        if (currentState == EnemyState.aggressive && Time.time - _timeOfLastAttack < 1f) { _wasFound = true; _transformationPercentage = 1; _isTransforming = false;
+            currentState = EnemyState.idle;
+        }
+        if (_transformationPercentage < 0.5f) { _hasInstantContactDamage = false; }
+        else { _hasInstantContactDamage = true; }
         base.Update();
+
+        _animator.SetBool("isSearching", _transformationPercentage > 0.5f);
     }
     public override void AggressiveTransitions()
     {
@@ -92,6 +102,24 @@ public class GekkoEnemy : EnemyBase
             _wasFound = true;
         }
     }
+    public override void StartAttack()
+    {
+
+    }
+    public override void PlayerTooClose()
+    {
+        if (!_isAttacking && Time.time - _timeOfLastAttack > _timeBetweenAttacks && PlayerMovement.instance.gameObject.TryGetComponent<HealthManager>(out HealthManager hm))
+        {
+            if (_hasInstantContactDamage)
+            {
+                hm.isPoisoned = true;
+            }
+            else
+            {
+                StartAttack();
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Light")
@@ -103,4 +131,5 @@ public class GekkoEnemy : EnemyBase
     {
         _isBeingLookedAt = false;
     }
+
 }

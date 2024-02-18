@@ -204,9 +204,10 @@ MonoBehaviour:
   _maxRoamingDistanceVariance: 10
   _playerFoodValue: 5
   _minRetreatingBaseDistance: 5
-  _hasInstantContactDamage: 1
+  _hasInstantContactDamage: 0
   _defaultAngleRotation: -90
   _maxChaseDistance: 40
+  _contactDistance: 1
   wolfBase: {fileID: 0}
   _packDistance: 5
   _minWolvesForPack: 3

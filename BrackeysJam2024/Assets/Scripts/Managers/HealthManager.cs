@@ -11,8 +11,14 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private ParticleSystem onDamagePS;
     [SerializeField] private ParticleSystem onDeathPS;
     [SerializeField] private bool isPlayer;
+    
     public float health;
     public float maxHealth;
+    //Player only, didnt feel like making a subscript
+    public bool isPoisoned;
+    private float _timeOfLastPoisonTick=0;
+    private float _delayBetweenPoisonTick=3;
+    private int _poisonTickDamage=2;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +34,11 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isPlayer) UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
+        if (isPlayer)
+        {
+            UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
+            if (isPoisoned&&Time.time-_timeOfLastPoisonTick>_delayBetweenPoisonTick) { ChangeHealth(-_poisonTickDamage);_timeOfLastPoisonTick = Time.time; }
+        }
 	}
 
     public void ChangeHealth(float value) //Increase/Decrease health by the value

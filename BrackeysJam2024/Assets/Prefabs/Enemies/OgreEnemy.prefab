@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackKnockback
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _playerFoodValue

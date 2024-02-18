@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blood Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014711, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
 --- !u!198 &1550357218151104882 stripped
@@ -69,6 +73,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7263672904139568163, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -117,8 +125,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GekkoEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+    - {fileID: 7263672904752386111, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
 --- !u!4 &6978481080603207464 stripped
 Transform:
@@ -167,6 +180,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &5892745986686041232
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978481080603207470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83860b2823ceb01499b7c5b97a8ebbb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1532032721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,29 +229,31 @@ MonoBehaviour:
   _startSeeingPlayerThreshold: 0
   _stopSeeingPlayerThreshold: 0
   _forgetPlayerRate: 2
-  _timeBetweenAttacks: 1
+  _timeBetweenAttacks: 10
   _attackDamage: 10
   _attackKnockback: 5
   _attackOffset: {x: 0, y: 0}
   _attackRadius: 0
   _attackLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _sightDistance: 100
   _idleSightDistance: 100
   _canBeDefensive: 0
   _minDefensiveDistance: 0
   _startAttackRange: 0
-  _agentSpeed: 1
+  _agentSpeed: 1.5
   _maxRoamingDistance: 50
   _maxRoamingDistanceVariance: 0
   _playerFoodValue: 100
   _minRetreatingBaseDistance: 0
   _hasInstantContactDamage: 1
   _defaultAngleRotation: -90
-  _startTransformingDistance: 15
-  _stopTransformingDistance: 20
-  _resetHuntDistance: 40
+  _maxChaseDistance: 100
+  _contactDistance: 0.2
+  _startTransformingDistance: 10
+  _stopTransformingDistance: 15
+  _resetHuntDistance: 20
   _transformingRate: 0.2
   _transformingPercentageToAlpha:
     serializedVersion: 2
@@ -233,7 +269,7 @@ MonoBehaviour:
       outWeight: 0.33125
     - serializedVersion: 3
       time: 1
-      value: 0.05
+      value: 0.3
       inSlope: -0
       outSlope: -0
       tangentMode: 0

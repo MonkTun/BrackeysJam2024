@@ -94,6 +94,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected bool _hasInstantContactDamage = true;
     [SerializeField] protected float _defaultAngleRotation = -90;
     [SerializeField] protected float _maxChaseDistance = 40;
+    [SerializeField] protected float _contactDistance=1;
     #endregion
     #region Unity Functions
     protected virtual void Awake()
@@ -119,6 +120,8 @@ public class EnemyBase : MonoBehaviour
         UpdateCanSeePlayer();
         //State Machine
         RunStateMachine();
+        if (CalculateDistSqr(transform.position, PlayerMovement.instance.transform.position) < _contactDistance * _contactDistance) { _navAgent.isStopped = true; _navAgent.velocity = Vector2.zero; PlayerTooClose(); }
+        if (CalculateDistSqr(transform.position, PlayerMovement.instance.transform.position) < _contactDistance * _contactDistance) { _navAgent.isStopped = false; PlayerTooClose(); }
 
     }
     private void OnDestroy()
@@ -145,21 +148,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!_isAttacking&&Time.time-_timeOfLastAttack>_timeBetweenAttacks&& collision.gameObject.TryGetComponent<HealthManager>(out HealthManager hm) )
-            {
-                if (_hasInstantContactDamage)
-                {
-                    _timeOfLastAttack = Time.time;
-                    Debug.Log("Damaged enemy: " + collision.gameObject.name);
-                    hm.ChangeHealth(_attackDamage);
-                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
-
-                }
-                else
-                {
-                    StartAttack();
-                }
-            }
+            PlayerTooClose();
         }
     }
     #endregion
@@ -422,7 +411,24 @@ public class EnemyBase : MonoBehaviour
         Debug.LogError("UNABLE TO FIND EXPLORATION TARGET POINT");
         return false;
     }
+    public virtual void PlayerTooClose()
+    {
+        if (!_isAttacking && Time.time - _timeOfLastAttack > _timeBetweenAttacks && PlayerMovement.instance.gameObject.TryGetComponent<HealthManager>(out HealthManager hm))
+        {
+            if (_hasInstantContactDamage)
+            {
+                _timeOfLastAttack = Time.time;
+                Debug.Log("Damaged enemy: " + PlayerMovement.instance.gameObject.name);
+                hm.ChangeHealth(_attackDamage);
+                PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().AddForce((PlayerMovement.instance.transform.position - transform.position).normalized * _attackKnockback);
 
+            }
+            else
+            {
+                StartAttack();
+            }
+        }
+    }
     public static float CalculateDistSqr(Vector2 a, Vector2 b)
     {
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
