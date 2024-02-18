@@ -150,7 +150,7 @@ public class EnemyBase : MonoBehaviour
                 {
                     _timeOfLastAttack = Time.time;
                     Debug.Log("Damaged enemy: " + collision.gameObject.name);
-                    hm.changeHealth(_attackDamage);
+                    hm.ChangeHealth(_attackDamage);
                     collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
 
                 }
@@ -228,7 +228,7 @@ public class EnemyBase : MonoBehaviour
             {
 
                 Debug.Log("Damaged enemy: " + col.name);
-                hm.changeHealth(_attackDamage);
+                hm.ChangeHealth(_attackDamage);
                 col.GetComponent<Rigidbody2D>().AddForce((col.gameObject.transform.position - transform.position).normalized * _attackKnockback);
             }
         }
