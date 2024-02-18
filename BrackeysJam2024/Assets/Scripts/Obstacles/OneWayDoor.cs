@@ -25,7 +25,7 @@ public class OneWayDoor : MonoBehaviour
 
         door = transform.parent;
 
-        miscText = GameObject.FindGameObjectWithTag("Misc Text").GetComponent<MiscTextManager>();
+        //miscText = GameObject.FindGameObjectWithTag("Misc Text").GetComponent<MiscTextManager>();
     }
 
     // Update is called once per frame

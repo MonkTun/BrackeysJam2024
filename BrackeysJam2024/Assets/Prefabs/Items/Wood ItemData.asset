@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupItem: {fileID: 7799608088300343912, guid: adf83154fd306db49b1ba1124cea155b, type: 3}
   itemName: Wood Plank
-  itemIcon: {fileID: 21300000, guid: b2d50e3796af23f49913cbada5235311, type: 3}
+  itemIcon: {fileID: 21300000, guid: 2dad9c5a43822cc4497f96317006e898, type: 3}
   itemQuantity: 1
   isEdible: 0
   _foodValue: 5
