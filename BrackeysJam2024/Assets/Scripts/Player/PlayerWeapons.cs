@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerWeapons : MonoBehaviour
 {
 	[SerializeField] private Axe axe;
+	[SerializeField] private Barricade barricade;
 
 	private PlayerInventory _playerInventory;
 	private HungerManager _hungerManager;
@@ -34,6 +35,7 @@ public class PlayerWeapons : MonoBehaviour
 		if (_playerInventory.CurrentlySelectedItem != null  && _playerInventory.CurrentlySelectedItem.ItemBase != null)
 		{
 			axe.gameObject.SetActive(_playerInventory.CurrentlySelectedItem.ItemBase.itemName == "Axe");
+			barricade.gameObject.SetActive(_playerInventory.CurrentlySelectedItem.ItemBase.itemName == "Barricade");
 		}
 	}
 
@@ -45,6 +47,14 @@ public class PlayerWeapons : MonoBehaviour
 		if (axe.gameObject.activeInHierarchy)
 		{
 			if (axe.Attack(out float staminaCosted, out float hungerCosted))
+			{
+				_staminaManager.changeStamina(-staminaCosted);
+				_hungerManager.changeHunger(-hungerCosted);
+			}
+		}
+		else if (barricade.gameObject.activeInHierarchy)
+		{
+			if (barricade.Attack(out float staminaCosted, out float hungerCosted))
 			{
 				_staminaManager.changeStamina(-staminaCosted);
 				_hungerManager.changeHunger(-hungerCosted);
