@@ -1477,6 +1477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtAudioClip: {fileID: 8300000, guid: 1b062a26152fbdf4f9e40011ed4c1977, type: 3}
   spriteRenderer: {fileID: 4589737504134552846}
+  isPlayer: 1
   health: 0
   maxHealth: 100
 --- !u!114 &1463366279
