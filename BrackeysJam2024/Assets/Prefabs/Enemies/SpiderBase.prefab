@@ -71,7 +71,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _agentSpeed
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackDamage
@@ -315,6 +315,7 @@ MonoBehaviour:
   isPlayer: 0
   health: 30
   maxHealth: 30
+  isPoisoned: 0
 --- !u!114 &1800875724710013514
 MonoBehaviour:
   m_ObjectHideFlags: 0

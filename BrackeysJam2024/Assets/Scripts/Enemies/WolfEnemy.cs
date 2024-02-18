@@ -55,9 +55,10 @@ public class WolfEnemy : EnemyBase
         currentExplorationTarget = target;
         _navAgent.SetDestination(target);
     }
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         wolfBase.wolves.Remove(this);
+        base.OnDestroy();
     }
     
     private int CountNearbyWolves()

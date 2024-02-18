@@ -51,7 +51,7 @@ public class EnemyBase : MonoBehaviour
     #endregion
     #region Vision Values
     [Header("Vision Values")]
-    protected bool _canSeePlayer;
+    public bool _canSeePlayer;
     [Tooltip("_startSeeingPlayerThreshold>_stopSeeingPlayerThreshold")]
     [SerializeField] protected float _startSeeingPlayerThreshold;
     [Tooltip("_startSeeingPlayerThreshold>_stopSeeingPlayerThreshold")]
@@ -95,6 +95,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float _defaultAngleRotation = -90;
     [SerializeField] protected float _maxChaseDistance = 40;
     [SerializeField] protected float _contactDistance=1;
+    [SerializeField] protected bool _addToCombatMusicList = true;
     #endregion
     #region Unity Functions
     protected virtual void Awake()
@@ -105,6 +106,7 @@ public class EnemyBase : MonoBehaviour
         _navAgent.updateUpAxis = false;
         if (_animator == null) { _animator = GetComponent<Animator>(); }
         UpdateRuntimeValues();
+        if(_addToCombatMusicList) MusicManagerHelper.instance.enemies.Add(this);
     }
     protected virtual void Start()
     {
@@ -124,8 +126,9 @@ public class EnemyBase : MonoBehaviour
         if (CalculateDistSqr(transform.position, PlayerMovement.instance.transform.position) < _contactDistance * _contactDistance) { _navAgent.isStopped = false; PlayerTooClose(); }
 
     }
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
+        if (_addToCombatMusicList) MusicManagerHelper.instance.enemies.Remove(this);
         if (_deathAudioClip != null) { PlaySFXClip(_deathAudioClip); }
     }
     void FaceTarget()
