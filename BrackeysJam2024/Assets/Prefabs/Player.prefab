@@ -1484,6 +1484,7 @@ MonoBehaviour:
   isPlayer: 1
   health: 0
   maxHealth: 100
+  showPPHealth: 0
   isPoisoned: 0
 --- !u!114 &1463366279
 MonoBehaviour:
@@ -1499,8 +1500,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   maxHunger: 100
-  baseHungerDepletionRate: 0.55
-  sprintHungerDepletionRate: 2
+  baseHungerDepletionRate: 0.4
+  sprintHungerDepletionRate: 1.75
+  showPPHunger: 0
 --- !u!114 &1463366262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,7 +1518,7 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.022
+  brightnessDepletionRate: 0.0125
   flicker: 0.035
   flickerFrequency: 2
   startFlickeringBrigtness: 0.35
