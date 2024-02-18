@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073be139956a17f47bd0472c707feb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtAudioClip: {fileID: 8300000, guid: 1b062a26152fbdf4f9e40011ed4c1977, type: 3}
+  hurtAudioClip: {fileID: 8300000, guid: e1890b22bb1d6a44ea033333637cd630, type: 3}
   spriteRenderer: {fileID: 4589737504134552846}
   onDamagePS: {fileID: 2219355412517861006}
   onDeathPS: {fileID: 0}

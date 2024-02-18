@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   _timeBetweenSearchesVariance: 0
   _searchDuration: 0
   _searchDurationVariance: 0
+  _canSeePlayer: 0
   _startSeeingPlayerThreshold: 0
   _stopSeeingPlayerThreshold: 0
   _forgetPlayerRate: 2
@@ -251,6 +252,7 @@ MonoBehaviour:
   _defaultAngleRotation: -90
   _maxChaseDistance: 100
   _contactDistance: 0.2
+  _addToCombatMusicList: 0
   _startTransformingDistance: 10
   _stopTransformingDistance: 15
   _resetHuntDistance: 20
@@ -333,3 +335,4 @@ MonoBehaviour:
   isPlayer: 0
   health: 50
   maxHealth: 50
+  isPoisoned: 0
