@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// DEPRECATED
+/// </summary>
 public class MiscTextManager : MonoBehaviour
 {
-    private TextMeshProUGUI miscText;
+   /* private TextMeshProUGUI miscText;
 
     [SerializeField] private float wipeTextTime;
     private float timer;
@@ -34,5 +37,5 @@ public class MiscTextManager : MonoBehaviour
     public void UpdateText(string s)
     {
         miscText.text = s;
-    }
+    }*/
 }

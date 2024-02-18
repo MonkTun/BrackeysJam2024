@@ -52,7 +52,7 @@ public class OneWayDoor : MonoBehaviour
         {
             //TODO UI indication
             //Debug.Log("Door cannot be opened from this side!");
-            miscText.UpdateText("Door cannot be opened from this side!");
+            UIManager.Instance.DialogueUI.AddDialogue("Door cannot be opened from this side!");
         }
     }
 }

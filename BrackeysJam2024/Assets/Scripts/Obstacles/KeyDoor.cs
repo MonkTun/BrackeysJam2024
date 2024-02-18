@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class KeyDoor : MonoBehaviour
 {
-    private MiscTextManager miscText;
+   // private MiscTextManager miscText;
     private Rigidbody2D rb;
     private bool isUnlocked;
     // Start is called before the first frame update
     void Start()
     {
-        miscText = GameObject.FindGameObjectWithTag("Misc Text").GetComponent<MiscTextManager>();
+        //miscText = GameObject.FindGameObjectWithTag("Misc Text").GetComponent<MiscTextManager>();
         rb = GetComponent<Rigidbody2D>();
 
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -33,7 +33,9 @@ public class KeyDoor : MonoBehaviour
                 Debug.Log("unlocked");
                 if (!isUnlocked)
                 {
-                    miscText.UpdateText("Door unlocked!");
+                    UIManager.Instance.DialogueUI.AddDialogue("Door unlocked!");
+
+                    //miscText.UpdateText("Door unlocked!");
                 }
                 isUnlocked = true;
                 rb.constraints &= ~RigidbodyConstraints2D.FreezeRotation; //ChatGPT gave me this syntax idk what it means;
@@ -41,7 +43,7 @@ public class KeyDoor : MonoBehaviour
             else
             {
                 Debug.Log("Key required!");
-                miscText.UpdateText("Key required!");
+				UIManager.Instance.DialogueUI.AddDialogue("Key required!");
             }
         }
     }

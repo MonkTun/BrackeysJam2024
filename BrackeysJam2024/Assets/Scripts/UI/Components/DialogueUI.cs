@@ -26,7 +26,7 @@ public class DialogueUI : MonoBehaviour
 		_canvasGroup.alpha = 1.0f;	
 	}
 
-    public void AddDialoue(string newText) //just add with this
+    public void AddDialogue(string newText) //just add with this
     {
         if (_isDialoguePanelOpen == false) StartDialogue();
 
