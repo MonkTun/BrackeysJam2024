@@ -183,6 +183,7 @@ MonoBehaviour:
   _timeBetweenSearchesVariance: 2
   _searchDuration: 3
   _searchDurationVariance: 1
+  _canSeePlayer: 0
   _startSeeingPlayerThreshold: 2
   _stopSeeingPlayerThreshold: 1
   _forgetPlayerRate: 1
@@ -194,8 +195,8 @@ MonoBehaviour:
   _attackLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  _sightDistance: 8
-  _idleSightDistance: 4
+  _sightDistance: 4
+  _idleSightDistance: 2
   _canBeDefensive: 1
   _minDefensiveDistance: 3
   _startAttackRange: 0.6
@@ -208,6 +209,7 @@ MonoBehaviour:
   _defaultAngleRotation: -90
   _maxChaseDistance: 40
   _contactDistance: 1
+  _addToCombatMusicList: 1
   wolfBase: {fileID: 0}
   _packDistance: 5
   _minWolvesForPack: 3
@@ -519,3 +521,5 @@ MonoBehaviour:
   isPlayer: 0
   health: 20
   maxHealth: 20
+  showPPHealth: 0
+  isPoisoned: 0
