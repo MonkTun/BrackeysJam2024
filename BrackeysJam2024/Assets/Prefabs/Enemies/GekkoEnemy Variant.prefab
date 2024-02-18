@@ -114,6 +114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navAgent: {fileID: 0}
   _animator: {fileID: 0}
+  _aggroAudioClip: {fileID: 0}
+  _defenseAudioClip: {fileID: 0}
+  _deathAudioClip: {fileID: 0}
   currentState: 0
   currentIdleState: 0
   baseLocation: {fileID: 0}
@@ -143,6 +146,8 @@ MonoBehaviour:
   _maxRoamingDistanceVariance: 0
   _playerFoodValue: 100
   _minRetreatingBaseDistance: 0
+  _hasInstantContactDamage: 1
+  _defaultAngleRotation: -90
   _startTransformingDistance: 15
   _stopTransformingDistance: 20
   _resetHuntDistance: 40
@@ -206,3 +211,18 @@ MonoBehaviour:
     m_RotationOrder: 4
   rend: {fileID: 0}
   _invisibleTransformationThreshold: 0.5
+--- !u!114 &6873473576026027288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978481080603207470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073be139956a17f47bd0472c707feb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtAudioClip: {fileID: 0}
+  health: 50
+  maxHealth: 50

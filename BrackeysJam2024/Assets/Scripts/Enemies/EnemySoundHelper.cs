@@ -10,6 +10,7 @@ public class EnemySoundHelper : MonoBehaviour
     [SerializeField] private float _maxDistanceBetweenFootsteps;
     private float _currentDistanceBetweenFootsteps;
     private Vector2 lastPos;
+    private static int _minEmitFootstepsPlayerDistance = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,8 @@ public class EnemySoundHelper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (CalculateDistSqr(PlayerMovement.instance.transform.position, transform.position)>_minEmitFootstepsPlayerDistance*_minEmitFootstepsPlayerDistance){ return; }
         if (CalculateDistSqr(lastPos, transform.position) > _currentDistanceBetweenFootsteps * _currentDistanceBetweenFootsteps)
         {
             _currentDistanceBetweenFootsteps = Random.Range(_minDistanceBetweenFootsteps, _maxDistanceBetweenFootsteps);
