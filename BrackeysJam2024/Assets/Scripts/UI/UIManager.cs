@@ -172,11 +172,14 @@ public class UIManager : MonoBehaviour
 
 	public void QuitGame()
 	{
+		Time.timeScale = 1f;
 		GlobalSceneManager.Instance.OpenGameAsync("MainMenu");
+
 	}
 
 	public void Retry()
     {
+		Time.timeScale = 1f;
 		GlobalSceneManager.Instance.OpenGameAsync("Henry3");
 	}
 }
