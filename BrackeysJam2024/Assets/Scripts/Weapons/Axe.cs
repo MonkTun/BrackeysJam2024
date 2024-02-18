@@ -40,7 +40,7 @@ public class Axe : Weapon
 	{
 		if (collision.TryGetComponent(out HealthManager health) && collision.gameObject.layer != LayerMask.NameToLayer("Player"))
 		{
-			health.changeHealth(-_attackDamage);
+			health.ChangeHealth(-_attackDamage);
 		}
 	}
 }

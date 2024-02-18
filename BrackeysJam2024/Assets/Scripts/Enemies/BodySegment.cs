@@ -47,7 +47,7 @@ public class BodySegment : MonoBehaviour
             if (collision.gameObject.TryGetComponent<HealthManager>(out HealthManager hm))
             {
                 Debug.Log("Damaged enemy: " + collision.gameObject.name);
-                hm.changeHealth(_attackDamage);
+                hm.ChangeHealth(_attackDamage);
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * _attackKnockback);
             }
         }

@@ -7,6 +7,7 @@ using MoreMountains.Tools;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private AudioClip hurtAudioClip;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public float health;
     public float maxHealth;
 
@@ -22,7 +23,7 @@ public class HealthManager : MonoBehaviour
 		UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
 	}
 
-    public void changeHealth(float value) //Increase/Decrease health by the value
+    public void ChangeHealth(float value) //Increase/Decrease health by the value
     {
         if (value < 0&&hurtAudioClip!=null) { MMSoundManagerSoundPlayEvent.Trigger(hurtAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position); }
         health += value;
@@ -36,5 +37,21 @@ public class HealthManager : MonoBehaviour
             //Call some death function
         }
 
+        StartCoroutine(DamageTakeVisual());
+    }
+
+    public void Death()
+    {
+
+    }
+
+    private IEnumerator DamageTakeVisual()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.black;
+            yield return new WaitForSeconds(0.1f);
+			spriteRenderer.color = Color.white;
+		}
     }
 }

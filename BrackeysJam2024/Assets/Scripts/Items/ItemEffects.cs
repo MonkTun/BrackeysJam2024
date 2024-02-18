@@ -93,7 +93,7 @@ public class ItemEffects : MonoBehaviour
         {
             yield return new WaitForSeconds(rawMeatDmgInterval);
             time += rawMeatDmgInterval;
-            healthManager.changeHealth(-1f * rawMeatDmg / (rawMeatDmgDuration / rawMeatDmgInterval));
+            healthManager.ChangeHealth(-1f * rawMeatDmg / (rawMeatDmgDuration / rawMeatDmgInterval));
         }
     }
 
@@ -110,7 +110,7 @@ public class ItemEffects : MonoBehaviour
         {
             yield return new WaitForSeconds(cookedMeatHealInterval);
             time += cookedMeatHealInterval;
-            healthManager.changeHealth(cookedMeatHeal / (cookedMeatHealDuration / cookedMeatHealInterval));
+            healthManager.ChangeHealth(cookedMeatHeal / (cookedMeatHealDuration / cookedMeatHealInterval));
         }
     }
 
@@ -147,7 +147,7 @@ public class ItemEffects : MonoBehaviour
         UIManager.Instance.PlayerUI.UseBandage(bandageUseDuration);
         //uiManager.UseBandage(bandageUseDuration);
         yield return new WaitForSeconds(bandageUseDuration);
-        healthManager.changeHealth(bandageHealValue);
+        healthManager.ChangeHealth(bandageHealValue);
         GameManager.Instance.canPlayerControl = true;
     }
 
