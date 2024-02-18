@@ -92,6 +92,7 @@ public class EnemyBase : MonoBehaviour
     [Tooltip("Minimum distance before enemy switches from idle back to exploring")]
     [SerializeField] protected float _minRetreatingBaseDistance;
     [SerializeField] protected bool _hasInstantContactDamage = true;
+    [SerializeField] protected float _defaultAngleRotation = -90;
     #endregion
     #region Unity Functions
     protected virtual void Awake()
@@ -129,13 +130,13 @@ public class EnemyBase : MonoBehaviour
         if (direction.magnitude <= Mathf.Epsilon) { return; }
         transform.rotation = Quaternion.Euler(0,0,90+((direction.x<0)?0:180)+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);*/
         var dir = _navAgent.velocity;
-        var angle = 90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        var angle = _defaultAngleRotation + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
     void FacePlayer()
     {
         var dir = (Vector2)PlayerMovement.instance.transform.position - (Vector2)transform.position;
-        var angle = 90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        var angle = _defaultAngleRotation + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
     #region Collision Functions
