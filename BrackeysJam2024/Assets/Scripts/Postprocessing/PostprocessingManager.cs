@@ -13,7 +13,10 @@ public class PostprocessingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameplayPPOn();
+        Instance = this;
+
+
+		GameplayPPOn();
         NearDeathPPOff();
         PausedPPOff();
     }
