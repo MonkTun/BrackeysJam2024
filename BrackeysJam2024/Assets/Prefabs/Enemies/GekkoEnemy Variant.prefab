@@ -243,7 +243,7 @@ MonoBehaviour:
   _canBeDefensive: 0
   _minDefensiveDistance: 0
   _startAttackRange: 0
-  _agentSpeed: 1.5
+  _agentSpeed: 2
   _maxRoamingDistance: 50
   _maxRoamingDistanceVariance: 0
   _playerFoodValue: 100
@@ -335,4 +335,5 @@ MonoBehaviour:
   isPlayer: 0
   health: 50
   maxHealth: 50
+  showPPHealth: 0
   isPoisoned: 0
