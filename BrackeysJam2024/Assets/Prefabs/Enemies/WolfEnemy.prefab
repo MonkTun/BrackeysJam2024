@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -166,6 +166,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _aggroAudioClip: {fileID: 0}
   _defenseAudioClip: {fileID: 8300000, guid: 06cc09a4a85f0f94aba6343f25268512, type: 3}
+  _deathAudioClip: {fileID: 0}
   currentState: 0
   currentIdleState: 0
   baseLocation: {fileID: 0}
@@ -200,6 +201,21 @@ MonoBehaviour:
   _packDistance: 5
   _minWolvesForPack: 3
   _timeBetweenHowls: 5
+--- !u!114 &4836916286404742848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506174413280143727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5dc4d93f14c2a4a9f42c0e65e590eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mmfPlayer: {fileID: 7212736505386992270}
+  _minDistanceBetweenFootsteps: 0.5
+  _maxDistanceBetweenFootsteps: 1
 --- !u!114 &7212736505386992270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,18 +489,3 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
---- !u!114 &4836916286404742848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7506174413280143727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5dc4d93f14c2a4a9f42c0e65e590eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mmfPlayer: {fileID: 7212736505386992270}
-  _minDistanceBetweenFootsteps: 0.5
-  _maxDistanceBetweenFootsteps: 1

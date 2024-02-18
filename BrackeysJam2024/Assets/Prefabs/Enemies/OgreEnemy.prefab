@@ -147,7 +147,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OgreEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7263672904752386111, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
 --- !u!1 &9102494972732180613 stripped
 GameObject:
@@ -479,3 +480,24 @@ MonoBehaviour:
   _mmfPlayer: {fileID: 2204343033906541307}
   _minDistanceBetweenFootsteps: 1
   _maxDistanceBetweenFootsteps: 2
+--- !u!95 &397117930044174359
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102494972732180613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e1cc9bb94210b3479500c0d24ddbb8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

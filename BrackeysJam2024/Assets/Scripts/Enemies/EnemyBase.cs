@@ -125,15 +125,18 @@ public class EnemyBase : MonoBehaviour
     }
     void FaceTarget()
     {
-        Vector3 direction = _navAgent.velocity;
+        /*Vector3 direction = _navAgent.velocity;
         if (direction.magnitude <= Mathf.Epsilon) { return; }
-        transform.rotation = Quaternion.Euler(0,0,90+((direction.x<0)?0:180)+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);
+        transform.rotation = Quaternion.Euler(0,0,90+((direction.x<0)?0:180)+Mathf.Atan(direction.y/direction.x)*180/Mathf.PI);*/
+        var dir = _navAgent.velocity;
+        var angle = 90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
     void FacePlayer()
     {
-        Vector3 direction =  PlayerMovement.instance.transform.position-transform.position;
-        if (direction.magnitude <= Mathf.Epsilon) { return; }
-        transform.rotation = Quaternion.Euler(0, 0, 90 + ((direction.x < 0) ? 0 : 180) + Mathf.Atan2(direction.x,direction.y) * 180 / Mathf.PI);
+        var dir = (Vector2)PlayerMovement.instance.transform.position - (Vector2)transform.position;
+        var angle = 90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
     #region Collision Functions
     protected virtual void OnCollisionEnter2D(Collision2D collision)
