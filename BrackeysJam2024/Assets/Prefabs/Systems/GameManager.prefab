@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3758515444894307358}
   - component: {fileID: 3758515444894307345}
+  - component: {fileID: 3758515444924862475}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,3 +45,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2700ee1eaaffdca4ea0fb3a7bbd78e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3758515444924862475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758515444894307359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c504edd289aff40b22e064f10e1241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingItemAmount: 50
+  minSpawnInterval: 10
+  maxSpawnInterval: 30
+  minSpawnAmount: 1
+  maxSpawnAmount: 3
+  minItemSeparation: 6
+  possibleItemList:
+  - prefab: {fileID: 7799608088300343828, guid: adf83154fd306db49b1ba1124cea155b, type: 3}
+    weight: 30
+  - prefab: {fileID: 7799608088300343828, guid: 838ef6d3d3dea924e8cd317d4fe2c37d, type: 3}
+    weight: 20
+  - prefab: {fileID: 7799608088300343828, guid: f77d0a508c2a4534fa4f7392e04324d3, type: 3}
+    weight: 2.5
+  - prefab: {fileID: 7799608088300343828, guid: 90006bf6df371be439451f27f0aab331, type: 3}
+    weight: 22.5
+  - prefab: {fileID: 7799608088300343828, guid: 5a3ec925ad1326e4bb1f93038325e259, type: 3}
+    weight: 20
+  - prefab: {fileID: 7799608088300343828, guid: 56fceb971882871449b046f60f932080, type: 3}
+    weight: 10
