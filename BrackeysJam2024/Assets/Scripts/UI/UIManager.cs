@@ -161,6 +161,7 @@ public class UIManager : MonoBehaviour
 		deathBGAnim.SetTrigger("isDeath");
 		deathTextAnim.SetTrigger("isDeath");
 		yield return new WaitForSeconds(2);
+		Time.timeScale = 0f;
 		deathButtons.SetActive(true);
 	}
 

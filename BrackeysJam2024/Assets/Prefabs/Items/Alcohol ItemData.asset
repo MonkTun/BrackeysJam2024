@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupItem: {fileID: 7799608088300343912, guid: 56fceb971882871449b046f60f932080, type: 3}
   itemName: Alcohol
-  itemIcon: {fileID: 1456119357, guid: 4563326d58e422c44a9395fc5758549f, type: 3}
+  itemIcon: {fileID: 21300000, guid: a6f48938f1920cb49a018978735ab3ca, type: 3}
   itemQuantity: 1
   isEdible: 1
   _foodValue: 0
