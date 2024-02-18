@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InventoryUI)), RequireComponent(typeof(PlayerUI)), RequireComponent(typeof(InteractionUI))]
 public class UIManager : MonoBehaviour
@@ -168,5 +169,10 @@ public class UIManager : MonoBehaviour
 	public void QuitGame()
 	{
 		GlobalSceneManager.Instance.OpenGameAsync("MainMenu");
+	}
+
+	public void Retry()
+    {
+		GlobalSceneManager.Instance.OpenGameAsync("Henry3");
 	}
 }

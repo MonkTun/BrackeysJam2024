@@ -21,6 +21,8 @@ public class HealthManager : MonoBehaviour
     private float _delayBetweenPoisonTick=3;
     private int _poisonTickDamage=2;
 
+    private bool isDead;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,7 +30,7 @@ public class HealthManager : MonoBehaviour
         else spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 
-
+        isDead = false;
 		health = maxHealth;
     }
 
@@ -72,7 +74,7 @@ public class HealthManager : MonoBehaviour
     {
         if (isPlayer == false) Destroy(gameObject);
 
-        if (isPlayer)
+        if (isPlayer && !isDead)
         {
             PostprocessingManager.Instance.NearDeathPPOff();
             PostprocessingManager.Instance.PausedPPOff();
@@ -82,7 +84,7 @@ public class HealthManager : MonoBehaviour
         }
 
         if (onDeathPS != null) Destroy(Instantiate(onDeathPS, transform.position, Quaternion.identity), 1);
-
+        isDead = true;
     }
 
     private IEnumerator DamageTakeVisual()
