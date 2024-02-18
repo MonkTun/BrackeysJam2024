@@ -154,7 +154,7 @@ MonoBehaviour:
     m_Bits: 64
   lootLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!114 &4051056332901449924
 MonoBehaviour:
   m_ObjectHideFlags: 0

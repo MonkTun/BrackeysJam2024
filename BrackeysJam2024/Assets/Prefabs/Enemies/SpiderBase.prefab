@@ -75,11 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackDamage
-      value: -10
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackRadius
-      value: 0.25
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
@@ -315,6 +315,7 @@ MonoBehaviour:
   isPlayer: 0
   health: 30
   maxHealth: 30
+  showPPHealth: 0
   isPoisoned: 0
 --- !u!114 &1800875724710013514
 MonoBehaviour:
