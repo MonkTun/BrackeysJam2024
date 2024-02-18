@@ -22,3 +22,4 @@ MonoBehaviour:
   _fuelValue: 0
   damageMulti: 0
   isDropped: 0
+  hint: A hearty meal. Consume to recover hunger and health.
