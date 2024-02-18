@@ -32,6 +32,10 @@ public class HungerManager : MonoBehaviour
         {
             PostprocessingManager.Instance.NearDeathPPOn();
         }
+        else
+        {
+            PostprocessingManager.Instance.NearDeathPPOff();
+        }
         if (hunger <= 0f && !isDead)
         {
             PostprocessingManager.Instance.NearDeathPPOff();

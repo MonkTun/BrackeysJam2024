@@ -14,6 +14,8 @@ public class PostprocessingManager : MonoBehaviour
     void Start()
     {
         GameplayPPOn();
+        NearDeathPPOff();
+        PausedPPOff();
     }
 
     // Update is called once per frame

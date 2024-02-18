@@ -41,6 +41,10 @@ public class HealthManager : MonoBehaviour
             {
                 PostprocessingManager.Instance.NearDeathPPOn();
             }
+            else
+            {
+                PostprocessingManager.Instance.NearDeathPPOff();
+            }
             UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
             if (isPoisoned&&Time.time-_timeOfLastPoisonTick>_delayBetweenPoisonTick) { ChangeHealth(-_poisonTickDamage);_timeOfLastPoisonTick = Time.time; }
         }
