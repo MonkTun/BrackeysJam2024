@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
 	public PlayerUI PlayerUI => _playerUI;
 	public InteractionUI InteractionUI => _interactionUI;
 	public CraftingUI CraftingUI => _craftingUI;
+	public DialogueUI DialogueUI => _dialogueUI;
 
 	public ViewState State => _state;
 
@@ -30,12 +31,13 @@ public class UIManager : MonoBehaviour
 	public Animator deathTextAnim;
 	public GameObject deathButtons;
 
-	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel; 
+	[SerializeField] private GameObject gameplayPanel, inventoryPanel, pausedPanel, craftingPanel, settingsPanel, deathPanel, dialoguePanel; 
 
 	private InventoryUI _inventory;
 	private PlayerUI _playerUI;
 	private InteractionUI _interactionUI;
 	private CraftingUI _craftingUI;
+	private DialogueUI _dialogueUI;
 
 	private ViewState _state;
 
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour
 		_playerUI = GetComponent<PlayerUI>();
 		_interactionUI = GetComponent<InteractionUI>();
 		_craftingUI = GetComponent<CraftingUI>();
+		_dialogueUI = GetComponent<DialogueUI>();
 	}
 
 	public void ManageGameViews(ViewState state, bool isToggle = false)

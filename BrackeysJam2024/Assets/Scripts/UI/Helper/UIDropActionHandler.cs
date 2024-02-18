@@ -19,15 +19,17 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 
 	[SerializeField] private ItemDropActions _dropActions;
 
-	[SerializeField] private TMP_Text _investigateText;
+	//[SerializeField] private TMP_Text _investigateText;
 
 	private PlayerAiming _playerAiming;
 	private ItemEffects _itemEffects;
 
 	void OnDisable()
 	{
-		if (_investigateText != null)
-			_investigateText.text = string.Empty;
+		//if (_investigateText != null)
+		//_investigateText.text = string.Empty;
+
+		//UIManager.Instance.DialogueUI.EndDialogue();
 	}
 
 	void IDropHandler.OnDrop(PointerEventData eventData)
@@ -89,10 +91,10 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 								_itemEffects.BurnBarricade();
 								break;
 							default:
-								_investigateText.text=fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!";
+								UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be burned!");
 								return;
 						}
-						_investigateText.text = "burned " + fromSlot.InventoryItem.ItemBase.itemName;
+						UIManager.Instance.DialogueUI.AddDialoue("burned " + fromSlot.InventoryItem.ItemBase.itemName);
 
 						fromSlot.InventoryItem.ItemQuantity--;
 
@@ -115,27 +117,27 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
                         {
 							case "Bread":
 								_itemEffects.EatBread();
-								_investigateText.text = "ate bread";
+								UIManager.Instance.DialogueUI.AddDialoue("ate bread");
 								break;
 							case "Raw Meat":
 								_itemEffects.EatRawMeat();
-								_investigateText.text = "ate raw meat...it's poisoned!";
+								UIManager.Instance.DialogueUI.AddDialoue("ate raw meat...it's poisoned!");
 								break;
 							case "Cooked Meat":
 								_itemEffects.EatCookedMeat();
-								_investigateText.text = "ate cooked meat...regenerating health!";
+								UIManager.Instance.DialogueUI.AddDialoue("ate cooked meat...regenerating health!");
 								break;
 							case "Alcohol":
 								_itemEffects.DrinkAlcohol();
-								_investigateText.text = "drank alcohol...stamina boosted!";
+								UIManager.Instance.DialogueUI.AddDialoue("drank alcohol...stamina boosted!");
 								break;
 							case "Bandage":
 								_itemEffects.UseBandage();
-								_investigateText.text = "using bandage...";
+								UIManager.Instance.DialogueUI.AddDialoue("using bandage...");
 								break;
 							//TODO Candlestick, Plate, Axe, Mirror, Glass Shard
 							default:
-								_investigateText.text = fromSlot.InventoryItem.ItemBase.itemName+" cannot be used!";
+								UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName + " cannot be used!");
 								return;
 						}
 
@@ -155,11 +157,11 @@ public class UIDropActionHandler : MonoBehaviour, IDropHandler  //the handler na
 					case ItemDropActions.Look:
 						if (fromSlot.InventoryItem.ItemBase.hint != "")
                         {
-							_investigateText.text = fromSlot.InventoryItem.ItemBase.hint;
+							UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.hint);
 						}
                         else
                         {
-							_investigateText.text = fromSlot.InventoryItem.ItemBase.itemName;
+							UIManager.Instance.DialogueUI.AddDialoue(fromSlot.InventoryItem.ItemBase.itemName);
 						}
 
 						break;
