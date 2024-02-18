@@ -106,12 +106,13 @@ public class EnemyBase : MonoBehaviour
         _navAgent.updateUpAxis = false;
         if (_animator == null) { _animator = GetComponent<Animator>(); }
         UpdateRuntimeValues();
-        if(_addToCombatMusicList) MusicManagerHelper.instance.enemies.Add(this);
     }
     protected virtual void Start()
     {
         //Set new exploration target
         FindExplorationTarget();
+        if (_addToCombatMusicList) MusicManagerHelper.instance.enemies.Add(this);
+
     }
     protected virtual void Update()
     {
@@ -128,7 +129,7 @@ public class EnemyBase : MonoBehaviour
     }
     protected virtual void OnDestroy()
     {
-        if (_addToCombatMusicList) MusicManagerHelper.instance.enemies.Remove(this);
+        if (_addToCombatMusicList&&MusicManagerHelper.instance==null) MusicManagerHelper.instance.enemies.Remove(this);
         if (_deathAudioClip != null) { PlaySFXClip(_deathAudioClip); }
     }
     void FaceTarget()

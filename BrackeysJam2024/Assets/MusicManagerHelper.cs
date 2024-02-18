@@ -19,12 +19,13 @@ public class MusicManagerHelper : MonoBehaviour
     {
         _standardMusic = standardMusicPlayer.GetFeedbackOfType<MoreMountains.Feedbacks.MMF_MMSoundManagerSound>();
         instance = this;
+
     }
     // Update is called once per frame
     void Update()
     {
         aggroedEnemyExists = false;
-        foreach (EnemyBase e in enemies) { if (e.currentState == EnemyState.aggressive) { aggroedEnemyExists = true;break; } }
+        foreach (EnemyBase e in enemies) { if (e!=null&&e.currentState == EnemyState.aggressive) { aggroedEnemyExists = true;break; } }
 
         standardMusicPlayerVolume = Mathf.MoveTowards(standardMusicPlayerVolume, (aggroedEnemyExists ? 0f : 0.5f), volumeShiftingSpeed * Time.deltaTime);
         _standardMusic.MaxVolume = standardMusicPlayerVolume;
@@ -35,7 +36,7 @@ public class MusicManagerHelper : MonoBehaviour
         }
         else if (!aggroedEnemyExists)
         {
-            Invoke("StopCombatMusic", 3f);
+            StopCombatMusic();
         }
         wasLastFrameAggroed = aggroedEnemyExists;
     }
