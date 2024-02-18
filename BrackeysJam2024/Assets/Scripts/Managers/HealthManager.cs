@@ -8,19 +8,27 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private AudioClip hurtAudioClip;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private ParticleSystem onDamagePS;
+    [SerializeField] private ParticleSystem onDeathPS;
+    [SerializeField] private bool isPlayer;
     public float health;
     public float maxHealth;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        health = maxHealth;
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        else spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+
+
+		health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-		UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
+		if (isPlayer) UIManager.Instance.PlayerUI.UpdateHealthBar(health, maxHealth);
 	}
 
     public void ChangeHealth(float value) //Increase/Decrease health by the value
@@ -34,14 +42,18 @@ public class HealthManager : MonoBehaviour
         else if (health < 0f)
         {
             health = 0f;
-            //Call some death function
-        }
+            Death();
+			//Call some death function
+		}
 
         StartCoroutine(DamageTakeVisual());
     }
 
     public void Death()
     {
+        if (isPlayer == false) Destroy(gameObject);
+
+        if (onDeathPS != null) Destroy(Instantiate(onDeathPS, transform.position, Quaternion.identity), 1);
 
     }
 
@@ -50,7 +62,8 @@ public class HealthManager : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.black;
-            yield return new WaitForSeconds(0.1f);
+			if (onDamagePS != null) onDamagePS.Play();
+			yield return new WaitForSeconds(0.1f);
 			spriteRenderer.color = Color.white;
 		}
     }

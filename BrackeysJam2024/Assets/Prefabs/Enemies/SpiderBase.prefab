@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &691238729895424666
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9207487798782628907}
+    m_Modifications:
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014696, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687330741050014711, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+      propertyPath: m_Name
+      value: Blood Particle System
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+--- !u!198 &2233046165816428915 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1687330741050014697, guid: b5c91a88c6859254eacadb1dd876ebba, type: 3}
+  m_PrefabInstance: {fileID: 691238729895424666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1948459240415544361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +223,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: bc1de565d8608374ab41aa8132f2a016, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+--- !u!4 &9207487798782628907 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+  m_PrefabInstance: {fileID: 1948459240415544361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9207487798782628909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7263672904752386052, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
@@ -213,6 +280,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1496919945022282539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207487798782628909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073be139956a17f47bd0472c707feb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtAudioClip: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  onDamagePS: {fileID: 2233046165816428915}
+  onDeathPS: {fileID: 7961354080421624595, guid: 5b47504a904f4194481ace032ae1dd81, type: 3}
+  isPlayer: 0
+  health: 30
+  maxHealth: 30
 --- !u!114 &1800875724710013514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,18 +587,3 @@ MonoBehaviour:
   _mmfPlayer: {fileID: 1800875724710013514}
   _minDistanceBetweenFootsteps: 0.5
   _maxDistanceBetweenFootsteps: 1
---- !u!114 &1496919945022282539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207487798782628909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073be139956a17f47bd0472c707feb16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hurtAudioClip: {fileID: 0}
-  health: 30
-  maxHealth: 30
