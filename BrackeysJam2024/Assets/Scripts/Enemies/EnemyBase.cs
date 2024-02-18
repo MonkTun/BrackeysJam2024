@@ -93,6 +93,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float _minRetreatingBaseDistance;
     [SerializeField] protected bool _hasInstantContactDamage = true;
     [SerializeField] protected float _defaultAngleRotation = -90;
+    [SerializeField] protected float _maxChaseDistance = 40;
     #endregion
     #region Unity Functions
     protected virtual void Awake()
@@ -294,7 +295,7 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void AggressiveTransitions() //Enemies will not naturally transition back to defensive unless overridden
     {
-        if (!_canSeePlayer){ FindExplorationTarget(); currentState = EnemyState.idle; }
+        if (!_canSeePlayer||CalculateDistSqr(transform.position,baseLocation.position)> _maxChaseDistance* _maxChaseDistance) { _seenPlayerDuration = 0; FindExplorationTarget(); currentState = EnemyState.idle; }
     }
     #region Idle State Machine
     public virtual void ExploringBehaviour()

@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _aggroAudioClip
@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _idleSightDistance
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _maxRoamingDistance

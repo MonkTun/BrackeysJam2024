@@ -98,6 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolves: []
-  _maxCallDistance: 60
+  _maxCallDistance: 40
   _wolfPrefab: {fileID: 7506174413280143727, guid: 3b6f7a07b96955e429c9775bf29640e3, type: 3}
   _wolfAmount: 10

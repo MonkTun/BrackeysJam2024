@@ -79,7 +79,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackRadius
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
@@ -87,7 +87,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _attackOffset.y
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _searchDuration
@@ -102,6 +102,14 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _forgetPlayerRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _maxChaseDistance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _startAttackRange
       value: 1
       objectReference: {fileID: 0}
@@ -112,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _maxRoamingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _timeBetweenAttacks
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _timeBetweenSearches

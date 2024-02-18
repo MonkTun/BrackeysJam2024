@@ -186,11 +186,11 @@ MonoBehaviour:
   _startSeeingPlayerThreshold: 2
   _stopSeeingPlayerThreshold: 1
   _forgetPlayerRate: 1
-  _timeBetweenAttacks: 1
+  _timeBetweenAttacks: 1.5
   _attackDamage: -10
   _attackKnockback: 10
   _attackOffset: {x: 0, y: 0.5}
-  _attackRadius: 0.5
+  _attackRadius: 0.3
   _attackLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -199,13 +199,14 @@ MonoBehaviour:
   _canBeDefensive: 1
   _minDefensiveDistance: 3
   _startAttackRange: 0.6
-  _agentSpeed: 2
-  _maxRoamingDistance: 30
-  _maxRoamingDistanceVariance: 20
+  _agentSpeed: 1.5
+  _maxRoamingDistance: 20
+  _maxRoamingDistanceVariance: 10
   _playerFoodValue: 5
   _minRetreatingBaseDistance: 5
   _hasInstantContactDamage: 1
   _defaultAngleRotation: -90
+  _maxChaseDistance: 40
   wolfBase: {fileID: 0}
   _packDistance: 5
   _minWolvesForPack: 3
@@ -512,5 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtAudioClip: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  onDamagePS: {fileID: 0}
+  onDeathPS: {fileID: 0}
+  isPlayer: 0
   health: 20
   maxHealth: 20

@@ -31,7 +31,7 @@ public class OneWayDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(door.rotation.z);
+        //Debug.Log(door.rotation.z);
         if ((door.rotation.z >= 0.2f || door.rotation.z<=-0.2f))
         {
             coroutine=StartCoroutine(CloseDoor());
@@ -40,9 +40,9 @@ public class OneWayDoor : MonoBehaviour
 
     private IEnumerator CloseDoor()
     {
-        Debug.Log("started");
+        //Debug.Log("started");
         yield return new WaitForSeconds(4f);
-        Debug.Log("e");
+        //Debug.Log("e");
         door.rotation = new Quaternion(0f, 0f, 0f, 0f);
     }
 
@@ -51,7 +51,7 @@ public class OneWayDoor : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //TODO UI indication
-            Debug.Log("Door cannot be opened from this side!");
+            //Debug.Log("Door cannot be opened from this side!");
             miscText.UpdateText("Door cannot be opened from this side!");
         }
     }

@@ -70,8 +70,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _agentSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _forgetPlayerRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _maxChaseDistance
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _idleSightDistance
