@@ -28,12 +28,14 @@ public class PlayerInventory : MonoBehaviour
 	private int _currentSlot;
 
 	private PlayerAiming _playerAiming;
+	private BrightnessManager _brightnessManager;
 
 	public ItemBase key; //For Doors requiring keys to access
 
 	private void Awake()
 	{
 		_playerAiming = GetComponent<PlayerAiming>();
+		_brightnessManager = GetComponent<BrightnessManager>();
 
 		SetUpInventory();
 	}
@@ -106,6 +108,11 @@ public class PlayerInventory : MonoBehaviour
 					
 				}
 			}
+		}
+
+		if (item.itemName == "Upgraded Lamp")
+		{
+			_brightnessManager.SetLampState(true);
 		}
 
 		UIManager.Instance.Inventory.InventoryUpdate(HotbarItems, BackpackItems, this);

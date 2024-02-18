@@ -32,6 +32,8 @@ public class BrightnessManager : MonoBehaviour
     private float lightMuzzleBaseIntensity;
     private float lightSpreadBaseIntensity;
 
+    private float upgradeMultiplierY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,10 +86,10 @@ public class BrightnessManager : MonoBehaviour
 
             if (brightness < startFlickeringBrigtness)
             {
-				torchSpriteMaskScaler.localScale = new Vector2(brightness / startFlickeringBrigtness, brightness / startFlickeringBrigtness);
+				torchSpriteMaskScaler.localScale = new Vector2(brightness / startFlickeringBrigtness, upgradeMultiplierY * (brightness / startFlickeringBrigtness ));
 			} else
             {
-				torchSpriteMaskScaler.localScale = new Vector2(1, 1);
+				torchSpriteMaskScaler.localScale = new Vector2(1, 1 * upgradeMultiplierY);
 			}
 		}
         else
@@ -102,6 +104,20 @@ public class BrightnessManager : MonoBehaviour
 		}
 
 		UIManager.Instance.PlayerUI.UpdateLightBar(brightness, maxBrightness);
+	}
+
+    public void SetLampState(bool isUpgraded)
+    {
+        if (isUpgraded)
+        {
+            mainLightRay.pointLightOuterAngle = 90f;
+            upgradeMultiplierY = 2;
+
+		} else
+        {
+			mainLightRay.pointLightOuterAngle = 45f;
+			upgradeMultiplierY = 1;
+		}
 	}
 
     public void changeBrightness(float value) //Increase/Decrease brightness by the value
