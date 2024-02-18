@@ -20,10 +20,12 @@ public class PlayerMisc : MonoBehaviour
             if (!isPaused)
             {
                 UIManager.Instance.ManageGameViews(UIManager.ViewState.Paused);
+                Time.timeScale = 0f;
             }
             else
             {
                 UIManager.Instance.ManageGameViews(UIManager.ViewState.GamePlay);
+                Time.timeScale = 1f;
             }
             isPaused = !isPaused;
         }

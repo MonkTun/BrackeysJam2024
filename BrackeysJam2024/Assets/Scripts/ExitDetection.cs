@@ -20,7 +20,7 @@ public class ExitDetection : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //TODO Change Scene
+            GlobalSceneManager.Instance.OpenGameAsync("Victory");
         }
     }
 }

@@ -200,7 +200,7 @@ MonoBehaviour:
   _canBeDefensive: 1
   _minDefensiveDistance: 3
   _startAttackRange: 0.6
-  _agentSpeed: 1.5
+  _agentSpeed: 1.75
   _maxRoamingDistance: 20
   _maxRoamingDistanceVariance: 10
   _playerFoodValue: 5

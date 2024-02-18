@@ -75,7 +75,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _sightDistance
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _canBeDefensive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _searchDuration
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _forgetPlayerRate
@@ -87,7 +95,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: _idleSightDistance
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _timeBetweenAttacks
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _timeBetweenSearches
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263672904752386048, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
+      propertyPath: _searchDurationVariance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263672904752386050, guid: e9713837ae30e5a48ad48eb5af8e02b5, type: 3}
       propertyPath: m_RootOrder
@@ -190,3 +210,5 @@ MonoBehaviour:
   isPlayer: 0
   health: Infinity
   maxHealth: Infinity
+  showPPHealth: 0
+  isPoisoned: 0
