@@ -22,5 +22,5 @@ MonoBehaviour:
   _fuelValue: 5
   damageMulti: 0
   isDropped: 0
-  hint: If you are reading this, you are one of the few survivors. Come at once down
-    the hall. BEWARE OF OTHER GUESTS, THEY ARE NO LONGER THEMSELVES.
+  hint: If you are reading this, you are one of the few survivors. Come at once south
+    down the hall. BEWARE OF OTHER GUESTS, THEY ARE NO LONGER THEMSELVES.

@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stamina: 0
-  maxStamina: 50
+  maxStamina: 70
   staminaRegenRate: 3
   staminaRegenBoost: 0
 --- !u!114 &1463366271
@@ -1483,9 +1483,9 @@ MonoBehaviour:
   onDamagePS: {fileID: 2219355412517861006}
   onDeathPS: {fileID: 0}
   isPlayer: 1
-  health: 100
-  maxHealth: 100
-  showPPHealth: 35
+  health: 200
+  maxHealth: 200
+  showPPHealth: 50
   isPoisoned: 0
 --- !u!114 &1463366279
 MonoBehaviour:
@@ -1501,8 +1501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   maxHunger: 100
-  baseHungerDepletionRate: 0.4
-  sprintHungerDepletionRate: 1.75
+  baseHungerDepletionRate: 0.3
+  sprintHungerDepletionRate: 1.5
   showPPHunger: 30
 --- !u!114 &1463366262
 MonoBehaviour:
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   maxBrightness: 1
   minBrightness: 0
   brightness: 0
-  brightnessDepletionRate: 0.007
+  brightnessDepletionRate: 0.005
   flicker: 0.035
   flickerFrequency: 2
   startFlickeringBrigtness: 0.35
@@ -1564,14 +1564,14 @@ MonoBehaviour:
   rawMeatDmgInterval: 0.5
   rawMeatSlowDownRate: 1
   cookedMeatValue: 100
-  cookedMeatHeal: 40
+  cookedMeatHeal: 75
   cookedMeatHealDuration: 30
   cookedMeatHealInterval: 0.5
   alcoholFuelValue: 0.8
-  alcoholStaminaBoostValue: 4
-  alcoholStaminaBoostDuration: 15
+  alcoholStaminaBoostValue: 5.5
+  alcoholStaminaBoostDuration: 25
   bandageFuelValue: 1
-  bandageHealValue: 100
+  bandageHealValue: 200
   bandageUseDuration: 8
   woodFuelValue: 0.4
   candlestickRepairValue: 2
